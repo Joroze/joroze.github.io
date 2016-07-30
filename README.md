@@ -1,2 +1,2 @@
 # JResume
-http://joroze.github.io/JResume/
+http://joroze.github.io
