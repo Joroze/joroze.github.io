@@ -2,16 +2,18 @@ p {
     margin: 0 0 15px;
 }
 
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 45px;
+}
+
 body .modal-admin {
     /* new custom width */
     width: 100%;
     /* must be half of the width, minus scrollbar on the left (30px) */
     /*margin-left: 50%; */
-}
-
-@media (min-width: 768px)
-.page-footer {
-    text-align: left;
 }
 
 .page-footer {
@@ -33,6 +35,7 @@ body .modal-admin {
 
 .page-footer-links {
     padding-top: 0px;
+    padding-left: 0px;
     padding-bottom: 50px;
     margin-top: 80px;
     color: #99979c;
