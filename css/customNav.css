@@ -5,3 +5,21 @@ body .modal-admin {
     /*margin-left: 50%; */
 }
 
+.page-footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 100px;
+    color: #99979c;
+    text-align: center;
+    background-color: #2a2730;
+}
+
+.page-links-footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 100px;
+    color: #99979c;
+    text-align: center;
+    background-color: #2a2730;
+}
+
