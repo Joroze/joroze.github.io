@@ -2,6 +2,16 @@ p {
     margin: 0 0 15px;
 }
 
+.navbar-inverse .navbar-link {
+    color: #9d9d9d;
+    text-decoration: none;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
 .jumbotron p {
     margin-bottom: 15px;
     font-size: 21px;
