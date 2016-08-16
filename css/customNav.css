@@ -14,7 +14,7 @@ body .modal-admin {
     background-color: #2a2730;
 }
 
-.page-links-footer {
+.page-footer-links {
     padding-top: 50px;
     padding-bottom: 50px;
     margin-top: 100px;
@@ -23,11 +23,11 @@ body .modal-admin {
     background-color: #2a2730;
 }
 
-.page-links-footer a {
+.page-footer-links a {
     color: #fff;
 }
 
-page-links-footer {
+page-footer-links {
     padding-left: 0;
     margin-bottom: 20px;
 }
