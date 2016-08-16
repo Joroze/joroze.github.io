@@ -1,3 +1,7 @@
+p {
+    margin: 0 0 15px;
+}
+
 body .modal-admin {
     /* new custom width */
     width: 100%;
