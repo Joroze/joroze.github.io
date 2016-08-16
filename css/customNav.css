@@ -23,3 +23,16 @@ body .modal-admin {
     background-color: #2a2730;
 }
 
+.page-links-footer a {
+    color: #fff;
+}
+
+page-links-footer {
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px)
+.page-footer {
+    text-align: left;
+}
