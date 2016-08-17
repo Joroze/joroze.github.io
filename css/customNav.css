@@ -17,6 +17,7 @@ p {
     padding-bottom: 30px;
     margin-bottom: 0px;
     color: white;
+    text-shadow: 0 3px 0 rgba(0,0,0,.1);
     background-color: rgba(0, 0, 0, 0.54);
 }
 
@@ -79,4 +80,10 @@ page-footer-links {
 
 .typed-cursor{
     display: none;
+}
+
+.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, .h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
 }
