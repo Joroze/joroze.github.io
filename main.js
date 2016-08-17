@@ -32,7 +32,7 @@ setTimeout(function(){
 
 setTimeout(function(){
         $(".element2").typed({
-            strings: ["- organized and to the point"],
+            strings: ["- organized", "- and to the point"],
             typeSpeed: 35, // typing speed
             backDelay: 750, // pause before backspacing
             loop: false, // loop on or off (true or false)
