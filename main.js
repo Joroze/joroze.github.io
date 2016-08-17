@@ -11,7 +11,7 @@ $(document).ready(adjust_body_offset);
 setTimeout(function(){
         $(".element0").typed({
             strings: ["- open to new ideas and eager to learn"],
-            typeSpeed: 20, // typing speed
+            typeSpeed: 10, // typing speed
             backDelay: 750, // pause before backspacing
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
