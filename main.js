@@ -16,7 +16,7 @@ setTimeout(function(){
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
-        });
+        })(jQuery);
     }, 0);
 
 setTimeout(function(){
@@ -28,7 +28,7 @@ setTimeout(function(){
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
-        });
+        })(jQuery);
     }, 2000);
 
 setTimeout(function(){
@@ -40,5 +40,5 @@ setTimeout(function(){
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
-        });
+        })(jQuery);
     }, 4000);
