@@ -30,7 +30,7 @@ setTimeout(function(){
         });
     }, 4000);
 
-(function(){
+$(function(){
         $(".element2").typed({
             strings: ["- creative"],
             typeSpeed: 40, // typing speed
