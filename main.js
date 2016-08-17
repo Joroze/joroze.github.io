@@ -28,7 +28,7 @@ setTimeout(function(){
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
         });
-    }, 2000);
+    }, 3000);
 
 setTimeout(function(){
         $(".element2").typed({
@@ -39,4 +39,4 @@ setTimeout(function(){
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
         });
-    }, 4000);
+    }, 5000);
