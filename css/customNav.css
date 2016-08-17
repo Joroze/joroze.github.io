@@ -12,6 +12,14 @@ p {
     transition: .5s;
 }
 
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* margin-bottom: 30px; */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.54);
+}
+
 .jumbotron p {
     margin-bottom: 15px;
     font-size: 21px;
