@@ -11,7 +11,7 @@ $(document).ready(adjust_body_offset);
 setTimeout(function(){
         $(".element0").typed({
             strings: ["- open to new ideas and eager to learn"],
-            typeSpeed: 10, // typing speed
+            typeSpeed: 45, // typing speed
             backDelay: 750, // pause before backspacing
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
@@ -22,7 +22,7 @@ setTimeout(function(){
 setTimeout(function(){
         $(".element1").typed({
             strings: ["- able to think outside the box"],
-            typeSpeed: 30, // typing speed
+            typeSpeed: 35, // typing speed
             backDelay: 750, // pause before backspacing
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
@@ -33,7 +33,7 @@ setTimeout(function(){
 setTimeout(function(){
         $(".element2").typed({
             strings: ["- organized and to the point"],
-            typeSpeed: 30, // typing speed
+            typeSpeed: 35, // typing speed
             backDelay: 750, // pause before backspacing
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
