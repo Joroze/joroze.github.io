@@ -28,9 +28,9 @@ setTimeout(function(){
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
         });
-    }, 5000);
+    }, 4000);
 
-setTimeout(function(){
+(function(){
         $(".element2").typed({
             strings: ["- creative"],
             typeSpeed: 40, // typing speed
