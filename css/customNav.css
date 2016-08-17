@@ -42,6 +42,12 @@ body .modal-admin {
     color: #99979c;
     text-align: center;
     background-color: #2a2730;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#6f6f6f),to(#000000));
+    background-image: -webkit-linear-gradient(top,#6f6f6f,#000000 100%);
+    background-image: -o-linear-gradient(top,#6f6f6f 0,#000000 100%);
+    background-image: linear-gradient(to bottom,#6f6f6f 0,#000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6f6f6f', endColorstr='#000000', GradientType=0);
+    background-repeat: repeat-x;
 }
 
 .page-footer-links li+li {
