@@ -23,14 +23,14 @@ setTimeout(function(){
         $(".element1").typed({
             strings: ["- organized", "- to the point"],
             typeSpeed: 45, // typing speed
-            backDelay: 750, // pause before backspacing
+            backDelay: 4000, // pause before backspacing
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
         });
     }, 4000);
 
-$(function(){
+setTimeout(function(){
         $(".element2").typed({
             strings: ["- creative"],
             typeSpeed: 40, // typing speed
@@ -39,4 +39,4 @@ $(function(){
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
         });
-    }, 8000);
+    }, 7000);
