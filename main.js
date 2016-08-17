@@ -10,9 +10,9 @@ $(document).ready(adjust_body_offset);
 
 setTimeout(function(){
         $(".element0").typed({
-            strings: ["- open to new ideas"],
+            strings: ["- open to new ideas", "- eager to learn"],
             typeSpeed: 55, // typing speed
-            backDelay: 750, // pause before backspacing
+            backDelay: 2700, // pause before backspacing
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
@@ -21,9 +21,9 @@ setTimeout(function(){
 
 setTimeout(function(){
         $(".element1").typed({
-            strings: ["- organized", "- to the point"],
+            strings: ["- organized and to the point"],
             typeSpeed: 45, // typing speed
-            backDelay: 2700, // pause before backspacing
+            backDelay: 750, // pause before backspacing
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
