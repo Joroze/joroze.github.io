@@ -61,3 +61,7 @@ page-footer-links {
     padding-left: 0;
     margin-bottom: 20px;
 }
+
+.nodisplay {
+  display: none;
+  }
