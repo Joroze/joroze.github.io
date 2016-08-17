@@ -62,3 +62,6 @@ page-footer-links {
     margin-bottom: 20px;
 }
 
+.typed-cursor{
+    display: none;
+}
