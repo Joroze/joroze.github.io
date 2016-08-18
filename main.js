@@ -12,7 +12,7 @@ setTimeout(function(){
         $(".element00").typed({
             strings: ["...", " a programmer"],
             typeSpeed: 70, // typing speed
-            backDelay: 13000, // pause before backspacing
+            backDelay: 14000, // pause before backspacing
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
