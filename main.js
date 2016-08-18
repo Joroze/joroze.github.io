@@ -9,6 +9,17 @@ $(document).ready(adjust_body_offset);
 */
 
 setTimeout(function(){
+        $(".element00").typed({
+            strings: ["...", " a programmer"],
+            typeSpeed: 55, // typing speed
+            backDelay: 9000, // pause before backspacing
+            loop: false, // loop on or off (true or false)
+            loopCount: false, // number of loops, false = infinite
+            callback: function(){ } // call function after typing is done
+        });
+    }, 500);
+
+setTimeout(function(){
         $(".element0").typed({
             strings: ["- a problem solver"],
             typeSpeed: 55, // typing speed
