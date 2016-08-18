@@ -18,7 +18,7 @@ html {
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background: url(https://s3.amazonaws.com/joroze/JResume+Website/headphones.jpg) no-repeat center center fixed;
+    background: url(headphones.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
