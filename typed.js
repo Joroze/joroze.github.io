@@ -293,47 +293,34 @@
 					}
 				}
 
-				// ----- continue important stuff ----- //
-				// replace text with base text + typed characters
-				var nextString = curString.substr(0, curStrPos);
-				if (self.attr) {
-					self.el.attr(self.attr, nextString);
-				} else {
-					if (self.isInput) {
-						self.el.val(nextString);
-					} else if (self.contentType === 'html') {
-						self.el.html(nextString);
-					} else {
-						self.el.text(nextString);
-					}
-				}
+			
+		    // ----- continue important stuff ----- //
+                    // replace text with current text + typed characters
+                    self.el.text(self.text + curString.substr(0, curStrPos));
 
-				// if the number (id of character in current string) is
-				// less than the stop number, keep going
-				if (curStrPos > self.stopNum) {
-					// subtract characters one by one
-					curStrPos--;
-					// loop the function
-					self.backspace(curString, curStrPos);
-				}
-				// if the stop number has been reached, increase
-				// array position to next string
-				else if (curStrPos <= self.stopNum) {
-					self.arrayPos++;
+                    // if the number (id of character in current string) is
+                    // less than the stop number, keep going
+                    if (curStrPos > self.stopNum){
+                        // subtract characters one by one
+                        curStrPos--;
+                        // loop the function
+                        self.backspace(curString, curStrPos);
+                    }
+                    // if the stop number has been reached, increase
+                    // array position to next string
+                    else if (curStrPos <= self.stopNum) {
+                        self.arrayPos++;
+                        
+                        if(self.arrayPos === self.strings.length) {
+                           self.arrayPos = 0;
+                           self.init();
+                        } else
+                            self.typewrite(self.strings[self.arrayPos], curStrPos);
+                    }
 
-					if (self.arrayPos === self.strings.length) {
-						self.arrayPos = 0;
-
-						// Shuffle sequence again
-						if(self.shuffle) self.sequence = self.shuffleArray(self.sequence);
-
-						self.init();
-					} else
-						self.typewrite(self.strings[self.sequence[self.arrayPos]], curStrPos);
-				}
-
-				// humanized value for typing
-			}, humanize);
+                // humanized value for typing
+                }, humanize);
+			
 
 		},
 		/**
