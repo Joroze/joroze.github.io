@@ -11,8 +11,8 @@ $(document).ready(adjust_body_offset);
 setTimeout(function(){
         $(".element00").typed({
             strings: ["...", " a programmer"],
-            typeSpeed: 60, // typing speed
-            backDelay: 11000, // pause before backspacing
+            typeSpeed: 70, // typing speed
+            backDelay: 13000, // pause before backspacing
             loop: false, // loop on or off (true or false)
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
@@ -28,7 +28,7 @@ setTimeout(function(){
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
         });
-    }, 1500);
+    }, 2000);
 
 setTimeout(function(){
         $(".element1").typed({
@@ -39,7 +39,7 @@ setTimeout(function(){
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
         });
-    }, 4500);
+    }, 5500);
 
 setTimeout(function(){
         $(".element2").typed({
@@ -50,4 +50,4 @@ setTimeout(function(){
             loopCount: false, // number of loops, false = infinite
             callback: function(){ } // call function after typing is done
         });
-    }, 8500);
+    }, 9500);
