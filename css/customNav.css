@@ -12,6 +12,10 @@ p {
     transition: .5s;
 }
 
+.navbar-inverse .navbar-link:hover {
+    text-decoration: none;
+}
+
 .jumbotron {
     padding-top: 30px;
     padding-bottom: 30px;
