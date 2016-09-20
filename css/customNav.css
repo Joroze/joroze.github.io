@@ -16,6 +16,21 @@ p {
     text-decoration: none;
 }
 
+.navbar-inverse .navbar-hovertext:hover {
+  text-decoration: none;
+  mouse: pointer;
+}
+
+.navbar-inverse .navbar-hovertext {
+  color: #9d9d9d;
+  text-decoration: none;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
 .jumbotron {
     padding-top: 30px;
     padding-bottom: 30px;
