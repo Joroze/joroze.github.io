@@ -18,6 +18,7 @@ p {
 
 .navbar-inverse .navbar-hovertext:hover {
   text-decoration: none;
+  color: white;
   mouse: pointer;
 }
 
