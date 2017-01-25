@@ -110,7 +110,7 @@ page-footer-links {
 }
 
 .footerColor{
-	color: #99979c;
+    color: #99979c;
     text-align: center;
     background-color: #2a2730;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#6f6f6f),to(#000000));
