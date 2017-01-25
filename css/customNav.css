@@ -40,7 +40,7 @@ p {
     color: white;
     text-shadow: 0 3px 0 rgba(0,0,0,.1);
     background-color: rgba(0, 0, 0, 0.54);
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.54) ), url(/img/headphones.jpg) no-repeat center center fixed;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.54) ), url(../img/headphones.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -87,17 +87,17 @@ body .modal-admin {
 }
 
 .page-footer-links {
-    padding-top: 0px;
+    padding-top: 100px;
     padding-left: 0px;
     padding-bottom: 50px;
-    margin-top: 80px;
+    margin-top: 0px;
     color: #99979c;
     text-align: center;
     background-color: transparent;
 }
 
 .page-footer-links a {
-    color: #fff;
+    color: white;
 }
 
 page-footer-links {
@@ -107,6 +107,22 @@ page-footer-links {
 
 .typed-cursor{
     display: none;
+}
+
+.footerColor{
+	color: #99979c;
+    text-align: center;
+    background-color: #2a2730;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#6f6f6f),to(#000000));
+    background-image: -webkit-linear-gradient(top,#6f6f6f,#000000 100%);
+    background-image: -o-linear-gradient(top,#6f6f6f 0,#000000 100%);
+    background-image: linear-gradient(to bottom,#6f6f6f 0,#000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6f6f6f', endColorstr='#000000', GradientType=0);
+    background-repeat: repeat-x;
+}
+
+.midColor{
+    background-color: white;
 }
 
 .h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, .h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
