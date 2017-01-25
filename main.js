@@ -8,6 +8,12 @@ $(document).ready(adjust_body_offset);
 
 */
 
+
+$("viewPDFButton").click(function(){
+    var iframe = $("#pdfiFrame");
+    iframe.attr("http://joroze.com/Jordan%20Rosenberg%20Resume.pdf", iframe.data("src")); 
+});
+
 setTimeout(function(){
         $(".element00").typed({
             strings: ["...", " a programmer"],
