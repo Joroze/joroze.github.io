@@ -8,6 +8,13 @@ $(document).ready(adjust_body_offset);
 
 */
 
+$("button").on("touchstart", function(){ 
+    $(this).removeClass("mobileHoverFix");
+});
+$("button").on("touchend", function(){ 
+    $(this).addClass("mobileHoverFix");
+});
+
 setTimeout(function(){
         $(".element00").typed({
             strings: ["...", " a programmer"],
