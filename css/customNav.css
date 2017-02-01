@@ -130,3 +130,8 @@ page-footer-links {
     line-height: 1;
     color: white;
 }
+
+.mobileHoverFix:hover,
+.mobileHoverFix.hover{
+    background-position: 0 0px;
+}
