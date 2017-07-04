@@ -2,6 +2,18 @@
     "name": "joroze.github.io",
     "version": "1.0.0",
     "homepage": "http://joroze.github.io",
+    "bugs": "https://github.com/Joroze/joroze.github.io/issues",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Joroze/joroze.github.io.git"
+    },
+    "author": {
+        "name": "Jordan Rosenberg",
+        "email": "roseje57@oneonta.edu",
+        "url": "http://joroze.com"
+    },
+    "private": true,
     "dependencies": {
         "bootstrap": "3",
         "gh-pages": "^1.0.0",
