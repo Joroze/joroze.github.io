@@ -1,6 +1,7 @@
 {
     "name": "joroze.github.io",
     "version": "1.0.0",
+    "homepage": "http://joroze.github.io",
     "dependencies": {
         "bootstrap": "3",
         "gh-pages": "^1.0.0",
