@@ -1,0 +1,19 @@
+.navbarTop {
+    .topColorBarStyle {
+        border-top: 2px solid red;
+    }
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand > img {
+    pointer-events: none;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 40px;
+}
