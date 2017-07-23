@@ -1,6 +1,11 @@
-.navbarTop {
-    .topColorBarStyle {
+.myNavbar {
+    .myNavbarTop {
         border-top: 2px solid red;
+    }
+
+    .myNavbarMiddle {
+        border-radius: 0;
+        border-bottom: 2px solid hsla(194, 66%, 61%, 0.51);
     }
 }
 
