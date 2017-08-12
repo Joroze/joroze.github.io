@@ -1,56 +1,63 @@
-import React, { Component } from 'react';
-import { Segment } from 'semantic-ui-react';
+import React, {
+    Component
+} from 'react';
+import {
+    Segment
+} from 'semantic-ui-react';
 import ProjectItem from './components/ProjectItem';
-import performRequest from 'api/get.js';
+import {
+    connect
+} from 'react-redux';
+import {
+    performUserRepositoryRequest
+} from './ProjectList.duck.js';
 
-export default class ProjectList extends Component {
+class ProjectList extends Component {
 
-    constructor(props) {
-      super(props);
-      this.state = {
-          loadSuccess: false,
-          loadingColor: 'orange',
-          loading: true,
-          repos: null
-      };
+    componentDidMount() {
+        const {
+            user,
+            loadUserRepositories
+        } = this.props
+
+        if (this.props.user.loadSuccess)
+            loadUserRepositories(user.data.login);
     }
 
-
-// TODO: Combine get USER ajax request with get REPO
-   componentDidMount() {
-       performRequest("joroze")
-        .then((data) => {
-            this.setState({
-                loadSuccess: true,
-                repos: data,
-                loadingColor: 'blue'
-            })
-        })
-        .catch((error) => {
-            this.setState({
-                loadingColor: 'red'
-            })
-        })
-        .then(() => {
-            this.setState({
-                loading: false
-            })
-        });
-   }
-
-    render(){
+    render() {
         return (
             <div>
-                {this.state.loadSuccess ?
-                    <Segment raised padded color='blue'>
-                        <ProjectItem
-                            repos={this.state.repos}
-                        >
-                        </ProjectItem>
-                    </Segment> :
-                    <Segment raised padded='very' loading={this.state.loading} color={this.state.loadingColor}>GitHub cannot be reached.</Segment>
-                }
+                <Segment
+                    raised
+                    padded='very'
+                    loading={this.props.projects.loading}
+                    color={this.props.projects.loadingColor}
+                >
+                    {this.props.projects.loadSuccess ?
+                        (
+                            <ProjectItem repos={this.props.projects.repos}/>
+                        )
+                    : (null)
+                    }
+                    {this.props.projects.msg}
+                </Segment>
             </div>
+
         );
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        loadUserRepositories: (username) => dispatch(performUserRepositoryRequest(username))
+    };
+}
+
+function mapStateToProps(state) {
+    return {
+        projects: state.projects,
+        user: state.user
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectList);

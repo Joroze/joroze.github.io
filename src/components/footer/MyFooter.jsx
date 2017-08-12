@@ -1,56 +1,79 @@
 import React from 'react';
-import { Icon, Container, Segment, Grid, Divider, Image, List, Popup, Header, Reveal} from 'semantic-ui-react'
+import {
+    Icon,
+    Container,
+    Segment,
+    Grid,
+    Divider,
+    Image,
+    List,
+    Popup,
+    Header,
+    Reveal,
+    Button
+} from 'semantic-ui-react'
 
-export default function MyFooter(props){
-    return(
+export default function MyFooter(props) {
+    return (
         <Segment vertical inverted>
             <Container textAlign='center'>
                 <Grid stackable inverted divided>
                     <Grid.Column width={3} only='computer tablet'>
-                        <Header as='h4' inverted>Group 1</Header>
-                        <List inverted link size='small'>
-                            <List.Item>
-                                <List.Content>Copyright © 2017</List.Content>
-                            </List.Item>
-                            <List.Item>
-                                <List.Content>All Rights Reserved</List.Content>
-                            </List.Item>
-                            <List.Item>
-                                <List.Content href='www.joroze.com'>www.Joroze.com</List.Content>
-                            </List.Item>
-                        </List>
+                        <Button
+                            animated
+                            className='footerIcon'
+                            circular
+                            color='linkedin'
+                            href='https://www.linkedin.com/in/joroze'
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button.Content visible>
+                                <Icon name='linkedin' />
+                            </Button.Content>
+                            <Button.Content hidden>
+                                <Icon name='external square' />
+                            </Button.Content>
+                        </Button>
                     </Grid.Column>
                     <Grid.Column width={3} only='computer tablet'>
-                        <Header as='h4' inverted>Group 2</Header>
-                        <List inverted link size='small'>
-                            <List.Item>
-                                <List.Content>Copyright © 2017</List.Content>
-                            </List.Item>
-                            <List.Item>
-                                <List.Content>All Rights Reserved</List.Content>
-                            </List.Item>
-                            <List.Item>
-                                <List.Content href='www.joroze.com'>www.Joroze.com</List.Content>
-                            </List.Item>
-                        </List>
+                        <Button
+                            animated
+                            className='footerIcon'
+                            circular
+                            href='https://github.com/Joroze'
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button.Content visible>
+                                <Icon name='github' />
+                            </Button.Content>
+                            <Button.Content hidden>
+                                <Icon name='external square' />
+                            </Button.Content>
+                        </Button>
                     </Grid.Column>
-                    <Grid.Column width={3}>
-                        <Header as='h4' inverted>Group 3</Header>
-                        <List inverted link size='small'>
-                            <List.Item>
-                                <List.Content>Copyright © 2017</List.Content>
-                            </List.Item>
-                            <List.Item>
-                                <List.Content>All Rights Reserved</List.Content>
-                            </List.Item>
-                            <List.Item>
-                                <List.Content href='www.joroze.com'>www.Joroze.com</List.Content>
-                            </List.Item>
-                        </List>
+                    <Grid.Column width={3} only='computer tablet'>
+                        <Button
+                            animated
+                            className='footerIcon'
+                            circular
+                            color='green'
+                            href='https://open.spotify.com/user/jordanrracer'
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button.Content visible>
+                                <Icon name='spotify' />
+                            </Button.Content>
+                            <Button.Content hidden>
+                                <Icon name='external square' />
+                            </Button.Content>
+                        </Button>
                     </Grid.Column>
                     <Grid.Column width={7}>
-                        <Header as='h4' inverted>Footer Content</Header>
-                        <p>Thank you for visiting my website, blah blah blah blah blah blah blah blah blah. blaaaah. :).</p>
+                        <Header as='h4' inverted>PS:</Header>
+                        <p>Be sure to check out my other projects from the top-right dropdown menu.</p>
                     </Grid.Column>
                 </Grid>
                 <Divider inverted section/>

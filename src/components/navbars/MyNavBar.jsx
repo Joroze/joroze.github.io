@@ -1,56 +1,22 @@
-import React, { Component } from 'react';
-import { Menu, Dropdown} from 'semantic-ui-react'
+import React, {
+    Component
+} from 'react';
+import {
+    Menu,
+    Dropdown
+} from 'semantic-ui-react'
 
 import './MyNavBar.css';
 
 export default class MyNavBar extends Component {
-
-    state = {};
-
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-
-  render() {
-
-    const { activeItem } = this.state;
-
-    return (
-            <Menu fixed='top' inverted>
-                {/* <Menu.Item>
-                    <Button size='small' color='linkedin' animated href='https://www.linkedin.com/in/joroze' target="_blank" rel="noopener noreferrer">
-                        <Button.Content visible>
-                    <Icon name='linkedin' /> LinkedIn
-                        </Button.Content>
-                        <Button.Content hidden>
-                    <Icon name='external' />
-                        </Button.Content>
-                    </Button>
-                    </Menu.Item>
-                    <Menu.Item>
-                    <Button size='small' color='grey' animated href='https://github.com/Joroze' target="_blank" rel="noopener noreferrer">
-                        <Button.Content visible>
-                    <Icon name='github' /> GitHub
-                        </Button.Content>
-                        <Button.Content hidden>
-                    <Icon name='external' />
-                        </Button.Content>
-                    </Button>
-                    </Menu.Item>
-                */}
-
+    render() {
+        return (
+            <Menu className='myNavBar' fixed='top' inverted>
                 <Menu.Item href='/'>
-                    <img className='logo'alt='Joroze' src={this.props.logo}></img>
+                    <img className='logo' alt='Joroze' src={this.props.logo}></img>
                     Resume
                 </Menu.Item>
 
-                {/*
-                    }<Menu.Item
-                    name='home'
-                    active={activeItem === 'home'}
-                    onClick={this.handleItemClick}
-                    >
-                    Home
-                    </Menu.Item>
-                */}
                 <Menu.Menu position='right'>
                     <Dropdown simple item text='More'>
                         <Dropdown.Menu>
@@ -68,6 +34,6 @@ export default class MyNavBar extends Component {
                     </Dropdown>
                 </Menu.Menu>
             </Menu>
-);
-}
+        );
+    }
 }

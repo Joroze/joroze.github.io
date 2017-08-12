@@ -1,6 +1,6 @@
 {
     "name": "joroze.github.io",
-    "description": "Jordan's personal resume/portfolio website",
+    "description": "Jordan's personal resume/portfolio website in React",
     "version": "1.0.0",
     "homepage": "http://joroze.github.io",
     "bugs": "https://github.com/Joroze/joroze.github.io/issues",
@@ -18,6 +18,8 @@
     "dependencies": {
         "axios": "^0.16.2",
         "gh-pages": "^1.0.0",
+        "lodash": "^4.17.4",
+        "moment": "^2.18.1",
         "node-sass-chokidar": "^0.0.3",
         "npm-run-all": "^4.0.2",
         "react": "^15.6.1",
