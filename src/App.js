@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {HashRouter as Router, Route, Switch} from "react-router-dom";
+
 import './App.css';
 
 import MyNavBar from './components/navbars/MyNavBar';
@@ -8,11 +9,15 @@ import Home from './components/views/home/Home';
 import MyFooter from './components/footer/MyFooter';
 import logo from 'img/logo.png'
 
+import {Provider} from 'react-redux';
+import store from './store'
+
 
 
 class App extends Component {
   render() {
     return (
+        <Provider store={store()}>
             <Router>
                 <div>
                     <MyNavBar logo={logo}></MyNavBar>
@@ -43,6 +48,7 @@ class App extends Component {
                     </div>
                 </div>
             </Router>
+        </Provider>
     );
   }
 }
