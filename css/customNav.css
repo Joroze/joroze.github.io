@@ -1,0 +1,134 @@
+
+p {
+    margin: 0 0 15px;
+}
+
+.navbar-inverse .navbar-link {
+    color: #9d9d9d;
+    text-decoration: none;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.navbar-inverse .navbar-link:hover {
+    text-decoration: none;
+}
+
+.navbar-inverse .navbar-hovertext:hover {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-inverse .navbar-hovertext {
+  color: #9d9d9d;
+  text-decoration: none;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 0px;
+    color: white;
+    text-shadow: 0 3px 0 rgba(0,0,0,.1);
+    background-color: rgba(0, 0, 0, 0.54);
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.54) ), url(../img/headphones.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 30px;
+}
+
+body .modal-admin {
+    /* new custom width */
+    width: 100%;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    /*margin-left: 50%; */
+}
+
+.page-footer {
+    /* padding-top: 0px; */
+    padding-bottom: 90px;
+    margin-top: -25px;
+    margin-bottom: -20px;
+    color: #99979c;
+    text-align: center;
+    background-color: #2a2730;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#6f6f6f),to(#000000));
+    background-image: -webkit-linear-gradient(top,#6f6f6f,#000000 100%);
+    background-image: -o-linear-gradient(top,#6f6f6f 0,#000000 100%);
+    background-image: linear-gradient(to bottom,#6f6f6f 0,#000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6f6f6f', endColorstr='#000000', GradientType=0);
+    background-repeat: repeat-x;
+}
+
+.page-footer-links li+li {
+    margin-left: 15px;
+}
+
+.page-footer-links li {
+    display: inline-block;
+}
+
+.page-footer-links {
+    padding-top: 100px;
+    padding-left: 0px;
+    padding-bottom: 50px;
+    margin-top: 0px;
+    color: #99979c;
+    text-align: center;
+    background-color: transparent;
+}
+
+.page-footer-links a {
+    color: white;
+}
+
+page-footer-links {
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.typed-cursor{
+    display: none;
+}
+
+.footerColor{
+    color: #99979c;
+    text-align: center;
+    background-color: #2a2730;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#6f6f6f),to(#000000));
+    background-image: -webkit-linear-gradient(top,#6f6f6f,#000000 100%);
+    background-image: -o-linear-gradient(top,#6f6f6f 0,#000000 100%);
+    background-image: linear-gradient(to bottom,#6f6f6f 0,#000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6f6f6f', endColorstr='#000000', GradientType=0);
+    background-repeat: repeat-x;
+}
+
+.midColor{
+    background-color: white;
+}
+
+.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, .h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
+    font-weight: 400;
+    line-height: 1;
+    color: white;
+}
+
+
