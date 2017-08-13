@@ -47,6 +47,7 @@ class MyJumbotron extends Component {
     }
 
     render() {
+        console.log("test")
         return (
             <div className='jumbotron'>
                 <Container textAlign='center'>
@@ -55,7 +56,7 @@ class MyJumbotron extends Component {
                         <Header.Content>
                             Jordan Rosenberg
                             <Header.Subheader className='white'>
-                                knows <span ref={(el) => { this.el = el; }}/>
+                                <span ref={(el) => { this.el = el; }}/>
                             </Header.Subheader>
                         </Header.Content>
                     </Header>

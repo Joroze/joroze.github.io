@@ -25,40 +25,49 @@ class App extends Component {
         return (
             <Provider store={store()}>
                 <Router basename="/">
-                <div>
-                    <MyNavBar logo={logo}></MyNavBar>
-                    <div className='App-content'>
-                        <MyJumbotron strings={[
-                            'Java',
-                            'Node.js',
-                            'C++',
-                            'C',
-                            'JavaScript',
-                            'Yarn',
-                            'NPM',
-                            'Android',
-                            'Atlassian Suite',
-                            'Git',
-                            'REST API',
-                            'Web Development',
-                            'Front End',
-                            'Back End'
-
-                        ]}></MyJumbotron>
-                        <Switch>
-                            <Route component={Home}/>
-                        </Switch>
-                        <br></br>
-                        <MyFooter logo={logo}></MyFooter>
-
+                    <div>
+                        <MyNavBar logo={logo}></MyNavBar>
+                        <div className='App-content'>
+                            <MyJumbotron strings={[
+                                'Java',
+                                'Node.js',
+                                'C++',
+                                'C',
+                                'JavaScript',
+                                'Yarn',
+                                'NPM',
+                                'Android',
+                                'BitBucket',
+                                'Git',
+                                'REST API',
+                                'Web Development',
+                                'React',
+                                'AngularJS',
+                                'JIRA',
+                                'Port Forwarding',
+                                'Web Design',
+                                'Data Structures',
+                                'Object Oriented Programming',
+                                'Functional Programming',
+                                'Agile Methodologies',
+                                'Software Development Life Cycle',
+                                'Linux',
+                                'Windows',
+                                'macOS',
+                                'Shell Scripting',
+                                'Firebase'
+                            ]}></MyJumbotron>
+                            <Switch>
+                                <Route component={Home}/>
+                            </Switch>
+                            <br></br>
+                            <MyFooter logo={logo}></MyFooter>
+                        </div>
                     </div>
-                </div>
-            </Router>
-        </Provider>
+                </Router>
+            </Provider>
         );
     }
 }
-
-
 
 export default App;

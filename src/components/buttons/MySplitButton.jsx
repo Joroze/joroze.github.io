@@ -10,7 +10,7 @@ import resumeFile from './Jordan Rosenberg Resume.pdf'
 
 const MySplitButton = () => (
     <Button.Group color='teal'>
-        <Modal basic trigger={<Button>View Resume</Button>}>
+        <Modal basic trigger={<Button>View Resume</Button>} onClose={this.close}>
             <Modal.Content>
                 <Embed
                     active

@@ -5,8 +5,7 @@ import {
 import {
     Card,
     Icon,
-    Image,
-    Divider
+    Image
 } from 'semantic-ui-react'
 
 const UserCard = (props) => {
@@ -33,11 +32,6 @@ const UserCard = (props) => {
             <Card.Content extra>
                 <Icon name='user' />
                 {user.data.hireable ? "Available for hire" : "Currently unavailable for hire"}
-                <Divider/>
-                <a href={user.url} target="_blank" rel="noopener noreferrer">
-                    <Icon name='linkify' />
-                    GitHub Profile
-                </a>
             </Card.Content>
         </Card>
     ) : (

@@ -39,7 +39,6 @@ class ProjectList extends Component {
                         )
                     : (null)
                     }
-                    {this.props.projects.msg}
                 </Segment>
             </div>
 
