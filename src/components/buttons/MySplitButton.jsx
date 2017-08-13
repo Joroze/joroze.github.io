@@ -15,7 +15,7 @@ const MySplitButton = () => (
                 <Embed
                     active
                     aspectRatio='4:3'
-                    url='http://docs.google.com/gview?url=http://joroze.com/Jordan%20Rosenberg%20Resume.pdf&embedded=true'
+                    url={`http://docs.google.com/gview?url=http://joroze.com/${resumeFile}&embedded=true`}
                 />
             </Modal.Content>
         </Modal>
