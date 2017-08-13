@@ -24,7 +24,7 @@ class App extends Component {
     render() {
         return (
             <Provider store={store()}>
-            <Router>
+                <Router basename="/">
                 <div>
                     <MyNavBar logo={logo}></MyNavBar>
                     <div className='App-content'>
