@@ -2,7 +2,7 @@
     "name": "joroze.github.io",
     "description": "Jordan's personal resume/portfolio website in React",
     "version": "1.0.0",
-    "homepage": "http://joroze.github.io",
+    "homepage": "https://joroze.github.io",
     "bugs": "https://github.com/Joroze/joroze.github.io/issues",
     "license": "MIT",
     "repository": {
@@ -29,7 +29,6 @@
         "react-router-dom": "^4.1.1",
         "react-scripts": "1.0.10",
         "redux": "^3.7.2",
-        "redux-logger": "^3.0.6",
         "redux-thunk": "^2.2.0",
         "semantic-ui-css": "^2.2.11",
         "semantic-ui-react": "^0.71.1",

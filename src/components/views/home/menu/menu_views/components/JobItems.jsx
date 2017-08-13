@@ -5,9 +5,9 @@ import {
     Popup,
     Divider
 } from 'semantic-ui-react'
-import remedyLogo from 'img/remedyLogo.png';
-import oneontaLogo from 'img/oneontaLogo.png';
-import nielsenLogo from 'img/nielsenLogo.png';
+import remedyLogo from '../../../../../../img/remedyLogo.png';
+import oneontaLogo from '../../../../../../img/oneontaLogo.png';
+import nielsenLogo from '../../../../../../img/nielsenLogo.png';
 
 const JobItems = () => (
     <Item.Group divided >

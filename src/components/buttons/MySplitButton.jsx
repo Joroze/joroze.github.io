@@ -6,7 +6,7 @@ import {
     Embed,
     Icon
 } from 'semantic-ui-react'
-import resumeFile from 'resources/Jordan Rosenberg Resume.pdf'
+import resumeFile from './Jordan Rosenberg Resume.pdf'
 
 const MySplitButton = () => (
     <Button.Group color='teal'>
