@@ -29,7 +29,6 @@ class ProjectList extends Component {
             <div>
                 <Segment
                     raised
-                    padded='very'
                     loading={this.props.projects.loading}
                     color={this.props.projects.loadingColor}
                 >

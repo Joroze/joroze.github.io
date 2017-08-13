@@ -10,7 +10,7 @@ import './JobList.css';
 export default class JobList extends Component {
     render() {
         return (
-            <Segment raised padded color='blue'>
+            <Segment raised color='blue'>
                 <JobItems/>
             </Segment>
         );
