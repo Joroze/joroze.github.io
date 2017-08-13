@@ -47,7 +47,6 @@ class MyJumbotron extends Component {
     }
 
     render() {
-        console.log("test")
         return (
             <div className='jumbotron'>
                 <Container textAlign='center'>
@@ -64,9 +63,8 @@ class MyJumbotron extends Component {
                     <Divider horizontal inverted>
                         <MySplitButton></MySplitButton>
                     </Divider>
-
                 </Container>
-                </div>
+            </div>
         );
     }
 }
