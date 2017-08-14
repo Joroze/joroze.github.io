@@ -30,7 +30,7 @@ const ProjectItem = (props) => (
                                 : <Icon link size='large' name='unlock' />
                             }
                         </Table.Cell>
-                        <Table.Cell selectable>
+                        <Table.Cell>
                             <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
                                 {repo.name}
                             </a>
