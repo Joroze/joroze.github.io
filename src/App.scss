@@ -61,10 +61,28 @@ div.jumbotron {
     color: red;
 }
 
+.jorozeFooterLogo {
+    cursor: pointer;
+}
+
 .text-center {
     text-align: center;
 }
 
 .footerIcon {
     margin-top: 20px !important;
+}
+
+span.typedSpan {
+    display: inline-block;
+}
+
+td > a {
+    color: #4183c4 !important;
+}
+
+.typed-fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
 }

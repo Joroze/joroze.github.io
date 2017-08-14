@@ -4,7 +4,7 @@ import React, {
 import {
     Segment
 } from 'semantic-ui-react';
-import ProjectItem from './components/ProjectItem';
+import ProjectItems from './components/ProjectItems';
 import {
     connect
 } from 'react-redux';
@@ -20,8 +20,9 @@ class ProjectList extends Component {
             loadUserRepositories
         } = this.props
 
-        if (this.props.user.loadSuccess)
+        if (this.props.user.loadSuccess) {
             loadUserRepositories(user.data.login);
+        }
     }
 
     render() {
@@ -34,7 +35,7 @@ class ProjectList extends Component {
                 >
                     {this.props.projects.loadSuccess ?
                         (
-                            <ProjectItem repos={this.props.projects.repos}/>
+                            <ProjectItems repos={this.props.projects.repos}/>
                         )
                     : (null)
                     }

@@ -28,10 +28,11 @@
         "react-router": "^4.1.1",
         "react-router-dom": "^4.1.1",
         "react-scripts": "1.0.10",
+        "react-scroll": "^1.5.4",
         "redux": "^3.7.2",
         "redux-thunk": "^2.2.0",
         "semantic-ui-css": "^2.2.11",
-        "semantic-ui-react": "^0.71.1",
+        "semantic-ui-react": "^0.71.4",
         "typed.js": "^2.0.5"
     },
     "scripts": {

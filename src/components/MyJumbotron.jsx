@@ -34,7 +34,8 @@ class MyJumbotron extends Component {
             showCursor: false,
             shuffle: true,
             loop: true,
-            loopCount: Infinity
+            loopCount: Infinity,
+            fadeOut: true
         };
 
         // this.el refers to the <span> in the render() method
@@ -55,7 +56,7 @@ class MyJumbotron extends Component {
                         <Header.Content>
                             Jordan Rosenberg
                             <Header.Subheader className='white'>
-                                <span ref={(el) => { this.el = el; }}/>
+                                <span className='typedSpan' ref={(el) => { this.el = el; }}/>
                             </Header.Subheader>
                         </Header.Content>
                     </Header>

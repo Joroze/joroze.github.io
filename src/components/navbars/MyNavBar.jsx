@@ -18,7 +18,7 @@ export default class MyNavBar extends Component {
                 </Menu.Item>
 
                 <Menu.Menu position='right'>
-                    <Dropdown simple item text='More'>
+                    <Dropdown item text='More'>
                         <Dropdown.Menu>
                             <Dropdown.Header>Contact</Dropdown.Header>
                             <Dropdown.Item href='https://www.linkedin.com/in/joroze' target="_blank" rel="noopener noreferrer" icon='linkedin square' text='Message' />

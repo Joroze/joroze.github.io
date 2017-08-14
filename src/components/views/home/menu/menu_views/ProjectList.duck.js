@@ -40,6 +40,7 @@ export function performUserRepositoryRequest(username) {
         axios.get(`/users/${username}/repos`, {
                 baseURL: 'https://api.github.com',
                 params: {
+                    type: 'owner',
                     sort: 'updated',
                     direction: 'asc'
                 }
