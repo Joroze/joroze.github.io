@@ -29,26 +29,27 @@ export default class MyMenuBar extends Component {
 
         return (
             <div>
-          <Menu pointing inverted fluid widths={3}>
-              <Menu.Item name='resume' active={activeItem === 'resume'} onClick={this.handleItemClick} />
-              <Menu.Item name='projects' active={activeItem === 'projects'} onClick={this.handleItemClick} />
-              <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick} />
-          </Menu>
-          <Container>
-              {activeItem === 'resume' ?
-                  <JobList /> :
-                  null
-              }
-              {activeItem === 'projects' ?
-                  <ProjectList /> :
-                  null
-              }
-              {activeItem === 'about' ?
-                  <About /> :
-                  null
-              }
-          </Container>
-      </div>
+                <Menu pointing inverted fluid widths={3}>
+                    <Menu.Item name='resume' active={activeItem === 'resume'} onClick={this.handleItemClick} />
+                    <Menu.Item name='projects' active={activeItem === 'projects'} onClick={this.handleItemClick} />
+                    <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick} />
+                </Menu>
+                <Container>
+
+                    {activeItem === 'resume' ?
+                        <JobList /> :
+                        null
+                    }
+                    {activeItem === 'projects' ?
+                        <ProjectList /> :
+                        null
+                    }
+                    {activeItem === 'about' ?
+                        <About /> :
+                        null
+                    }
+                </Container>
+            </div>
         )
     }
 }

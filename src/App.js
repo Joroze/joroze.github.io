@@ -1,3 +1,4 @@
+import './App.css';
 import React, {
     Component
 } from 'react';
@@ -6,8 +7,6 @@ import {
     Route,
     Switch
 } from "react-router-dom";
-
-import './App.css';
 
 import MyNavBar from './components/navbars/MyNavBar';
 import MyJumbotron from './components/MyJumbotron';
