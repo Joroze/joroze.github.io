@@ -29,7 +29,8 @@ export default class MyNavBar extends Component {
                             <Dropdown.Item href="http://joroze.com/Roomifer" target="_blank" rel="noopener noreferrer" icon='android' text='Roomifer App' />
                             <Dropdown.Divider/>
                             <Dropdown.Header>Archived Websites</Dropdown.Header>
-                            <Dropdown.Item href="http://joroze.com/JResume/" target="_blank" rel="noopener noreferrer" icon='archive' text='Website 1' />
+                            <Dropdown.Item href="http://joroze.com/JResume/" target="_blank" rel="noopener noreferrer" icon='archive' text='v1' />
+                            <Dropdown.Item href="http://joroze.com/JResume2/" target="_blank" rel="noopener noreferrer" icon='archive' text='v2' />
                         </Dropdown.Menu>
                     </Dropdown>
                 </Menu.Menu>

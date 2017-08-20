@@ -35,7 +35,9 @@ class ProjectList extends Component {
                 >
                     {this.props.projects.loadSuccess ?
                         (
-                            <ProjectItems repos={this.props.projects.repos}/>
+                            <div>
+                                <ProjectItems repos={this.props.projects.repos}/>
+                            </div>
                         )
                     : (null)
                     }

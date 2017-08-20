@@ -1,53 +1,46 @@
 import axios from 'axios';
-
+import {
+    merge
+} from 'lodash'
 // Actions
 const AJAX_LOAD = 'MyJumbotron/AJAX_LOAD';
 const AJAX_SUCCESS = 'MyJumbotron/AJAX_SUCCESS';
 const AJAX_FAIL = 'MyJumbotron/AJAX_FAIL';
 
+const TOGGLE_RESUME_VISIBILITY = 'MyJumbotron/TOGGLE_RESUME_VISIBILITY';
+
 // Define the initial state for the reducer
 let initialState = {
-    data: []
+    data: [],
+    resumeIsVisible: false
 }
 
 // User Reducer
 export default function UserProfileReducer(state = initialState, action) {
-
     switch (action.type) {
         case AJAX_LOAD:
-            return action.payload;
+            return merge({}, state, action.payload);
         case AJAX_SUCCESS:
-            return action.payload;
+            return merge({}, state, action.payload);
         case AJAX_FAIL:
-            return action.payload;
+            return merge({}, state, action.payload);
+        case TOGGLE_RESUME_VISIBILITY:
+            return merge({}, state, action.payload);
         default:
             return state;
     }
 }
+
 // Action Creators
-export const showMsg = (repos) => {
+export function toggleResumeVisibility(value) {
     return {
-        type: "SHOW_MSG",
+        type: TOGGLE_RESUME_VISIBILITY,
         payload: {
-            repos: {},
-            loading: true,
-            loadingColor: 'orange'
+            resumeIsVisible: value
         }
     }
 }
 
-export const hideMsg = (repos) => {
-    return {
-        type: "HIDE_MSG",
-        payload: {
-            repos: {},
-            loading: true,
-            loadingColor: 'orange'
-        }
-    }
-}
-
-// Action Creators
 export function performUserProfileRequest(username) {
     return dispatch => {
         dispatch({

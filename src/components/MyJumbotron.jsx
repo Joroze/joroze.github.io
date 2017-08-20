@@ -8,7 +8,9 @@ import {
     Container,
     Divider,
     Header,
-    Icon
+    Icon,
+    Embed,
+    Transition
 } from 'semantic-ui-react';
 import Typed from 'typed.js';
 
@@ -16,15 +18,17 @@ import MySplitButton from './buttons/MySplitButton';
 import {
     performUserProfileRequest
 } from './MyJumbotron.duck.js';
+import resumeFile from './Jordan Rosenberg Resume.pdf'
 
 class MyJumbotron extends Component {
 
     componentDidMount() {
         const {
-            strings
+            strings,
+            loadUserProfile
         } = this.props;
 
-        this.props.loadUserProfile("joroze")
+        loadUserProfile("joroze")
 
         const options = {
             strings: strings,
@@ -62,8 +66,16 @@ class MyJumbotron extends Component {
                     </Header>
 
                     <Divider horizontal inverted>
-                        <MySplitButton></MySplitButton>
+                        <MySplitButton visible={this.props.resumeIsVisible}></MySplitButton>
                     </Divider>
+
+                    <Transition visible={this.props.resumeIsVisible} animation='slide down' duration={300}>
+                        <Embed
+                            active
+                            aspectRatio='4:3'
+                            url={`http://docs.google.com/gview?url=http://joroze.com/${resumeFile}&embedded=true`}
+                        />
+                    </Transition>
                 </Container>
             </div>
         );
@@ -78,7 +90,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        resumeIsVisible: state.user.resumeIsVisible
     };
 }
 

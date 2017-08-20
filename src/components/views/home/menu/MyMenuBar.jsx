@@ -52,20 +52,3 @@ export default class MyMenuBar extends Component {
         )
     }
 }
-
-/*
-
-<Menu>
-    <Menu.Item as={Link} to="/">
-        Home
-    </Menu.Item>
-    <Menu.Item as={Link} to="/about">
-        About
-    </Menu.Item>
-    <Menu.Item as={Link} to="/projects">
-        Projects
-    </Menu.Item>
-</Menu>
-
-
-*/
