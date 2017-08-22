@@ -34,7 +34,7 @@ export default class MyMenuBar extends Component {
                     <Menu.Item name='projects' active={activeItem === 'projects'} onClick={this.handleItemClick} />
                     <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick} />
                 </Menu>
-                <Container>
+                <Container className="home-content">
 
                     {activeItem === 'resume' ?
                         <JobList /> :

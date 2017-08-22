@@ -1,24 +1,16 @@
-.App {
-    text-align: center;
-}
-
-.App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-}
-
-.App-intro {
-    font-size: large;
-}
-
 .App-content {
     background-color: #e8e8e8;
 }
 
-.ui.menu .item img.logo {
-    margin-right: 1.5em;
+.ui {
+    &.menu {
+        .item {
+            img.logo {
+                margin-right: 1.5em;
+                pointer-events: none;
+            }
+        }
+    }
 }
 
 div.jumbotron {
@@ -34,6 +26,7 @@ div.jumbotron {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    user-select: none;
 
     p {
         margin-bottom: 15px;
@@ -43,6 +36,8 @@ div.jumbotron {
     }
 
     .ui.header {
+        text-shadow: 0 0 5px rgb(0, 0, 0);
+
         &.white {
             color: white;
         }
@@ -63,16 +58,8 @@ div.jumbotron {
     color: red;
 }
 
-.jorozeFooterLogo {
-    cursor: pointer;
-}
-
 .text-center {
     text-align: center;
-}
-
-.footerIcon {
-    margin-top: 20px !important;
 }
 
 span.typedSpan {

@@ -1,3 +1,21 @@
 .myFooter {
-    margin-top: -1px !important;
+    .footerTopWave {
+        pointer-events: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .footerSegment {
+        margin-top: -1px !important;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+
+        .footerIcon {
+            margin-top: 20px;
+        }
+
+        .jorozeFooterLogo {
+            cursor: pointer;
+        }
+    }
 }

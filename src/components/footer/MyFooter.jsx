@@ -40,12 +40,13 @@ export default class MyFooter extends Component {
         } = this.state
 
         return (
-            <section>
+            <section className="myFooter">
                 <Image
+                    className="footerTopWave"
                     src={footerWave}
                     fluid
                 />
-                <Segment className="myFooter" vertical inverted>
+                <Segment className="footerSegment" vertical inverted>
                     <Container textAlign='center'>
                         <Grid stackable inverted divided>
                             <Grid.Column width={3} only='computer tablet'>

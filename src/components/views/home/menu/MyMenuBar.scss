@@ -1,3 +1,16 @@
 .ui.menu {
     border-radius: 0;
 }
+
+.home-content {
+    ::selection {
+        color: floralwhite;
+        background-color: #3096de;
+    }
+
+    img {
+        user-select: none;
+        pointer-events: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
