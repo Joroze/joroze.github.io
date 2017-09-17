@@ -1,3 +1,5 @@
+import './MyJumbotron.css';
+
 import React, {
     Component
 } from 'react';
@@ -14,23 +16,17 @@ import {
 } from 'semantic-ui-react';
 import Typed from 'typed.js';
 
-import MySplitButton from './buttons/MySplitButton';
-import {
-    performUserProfileRequest
-} from './MyJumbotron.duck.js';
-import resumeFile from './Jordan Rosenberg Resume.pdf'
+import MySplitButton from 'components/MySplitButton/MySplitButton';
+import resumeFile from 'Jordan Rosenberg Resume.pdf'
 
 class MyJumbotron extends Component {
 
     componentDidMount() {
         const {
-            strings,
-            loadUserProfile
+            strings
         } = this.props;
 
-        loadUserProfile("joroze")
-
-        const options = {
+        const typedConfig = {
             strings: strings,
             typeSpeed: 100,
             backSpeed: 50,
@@ -43,7 +39,7 @@ class MyJumbotron extends Component {
         };
 
         // this.el refers to the <span> in the render() method
-        this.typed = new Typed(this.el, options);
+        this.typed = new Typed(this.el, typedConfig);
     }
 
     componentWillUnmount() {
@@ -52,6 +48,9 @@ class MyJumbotron extends Component {
     }
 
     render() {
+
+        const { isResumeVisible } = this.props
+
         return (
             <div className='jumbotron'>
                 <Container textAlign='center'>
@@ -66,10 +65,10 @@ class MyJumbotron extends Component {
                     </Header>
 
                     <Divider horizontal inverted>
-                        <MySplitButton visible={this.props.resumeIsVisible}></MySplitButton>
+                        <MySplitButton isResumeVisible={isResumeVisible}></MySplitButton>
                     </Divider>
 
-                    <Transition visible={this.props.resumeIsVisible} animation='slide down' duration={300}>
+                    <Transition visible={isResumeVisible} animation='slide down' duration={300}>
                         <Embed
                             active
                             aspectRatio='4:3'
@@ -82,16 +81,10 @@ class MyJumbotron extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        loadUserProfile: (username) => dispatch(performUserProfileRequest(username))
-    };
-}
-
 function mapStateToProps(state) {
     return {
-        resumeIsVisible: state.user.resumeIsVisible
+        isResumeVisible: state.user.isResumeVisible
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyJumbotron);
+export default connect(mapStateToProps)(MyJumbotron);

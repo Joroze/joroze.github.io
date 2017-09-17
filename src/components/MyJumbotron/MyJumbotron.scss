@@ -1,0 +1,35 @@
+.jumbotron {
+    padding-top: 100px;
+    padding-bottom: 30px;
+    margin-bottom: 0;
+    color: white;
+    text-shadow: 0 3px 0 rgba(0,0,0,.1);
+    background-color: rgba(0, 0, 0, 0.54);
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.54) ), url("./headphones.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    user-select: none;
+
+    p {
+        margin-bottom: 15px;
+        font-size: 21px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+
+    .ui.header {
+        text-shadow: 0 0 5px rgb(0, 0, 0);
+
+        &.white {
+            color: white;
+        }
+    }
+
+    .sub.header {
+        &.white {
+            color: white;
+        }
+    }
+}

@@ -13,7 +13,7 @@ export default class MyNavBar extends Component {
         return (
             <Menu className='myNavBar' fixed='top' inverted>
                 <Menu.Item href='/'>
-                    <img className='logo' alt='Joroze' src={this.props.logo}></img>
+                    <img className='myNavBarLogo' alt='Joroze' src={this.props.logo}></img>
                     Resume
                 </Menu.Item>
 

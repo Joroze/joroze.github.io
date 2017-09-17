@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Segment
 } from 'semantic-ui-react'
-import UserCard from '../../../../cards/UserCard'
+import UserCard from 'components/UserCard/UserCard'
 
 export default function About(props) {
     return (

@@ -1,0 +1,11 @@
+.app-content {
+    background-color: #e8e8e8;
+    position: absolute;
+    top: 56px;
+    width: 100%;
+
+    .ui.message {
+        position: absolute;
+        display: flex !important;
+    }
+}

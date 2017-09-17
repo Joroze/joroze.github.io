@@ -3,19 +3,31 @@ import {
     combineReducers,
     createStore
 } from 'redux';
-import thunk from 'redux-thunk';
+import { combineEpics } from 'redux-observable';
+import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
+import { createEpicMiddleware } from 'redux-observable';
 
-import UserProfileReducer from './components/MyJumbotron.duck.js';
-import RepositoryReducer from './components/views/home/menu/menu_views/ProjectList.duck.js';
+import {
+    reducer as UserProfileReducer,
+    userEpic
+} from './ducks/UserProfile.duck.js';
+import {
+    reducer as GlobalAlertReducer,
+    globalAlertEpic
+} from './ducks/GlobalAlert.duck.js';
 
-const allReducers = combineReducers({
-    user: UserProfileReducer,
-    projects: RepositoryReducer
+export const rootEpic = combineEpics(
+    globalAlertEpic,
+    userEpic
+);
+
+const rootReducer = combineReducers({
+    globalAlerts: GlobalAlertReducer,
+    user: UserProfileReducer
 });
 
-const middleWare = applyMiddleware(thunk);
-const store = createStore(allReducers, middleWare);
+const epicMiddleware = createEpicMiddleware(rootEpic)
+const middleWare = applyMiddleware(epicMiddleware);
+const store = createStore(rootReducer, composeWithDevTools(middleWare));
 
-export default function() {
-    return store;
-}
+export default () => store;

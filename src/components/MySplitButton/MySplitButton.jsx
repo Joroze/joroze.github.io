@@ -5,29 +5,29 @@ import {
     connect
 } from 'react-redux';
 import {
-    toggleResumeVisibility
-} from '../MyJumbotron.duck.js';
+    hideResume,
+    showResume
+} from 'ducks/UserProfile.duck.js';
 import {
     Button,
     Dropdown,
     Icon
 } from 'semantic-ui-react'
-import resumeFile from '../Jordan Rosenberg Resume.pdf'
+import resumeFile from 'Jordan Rosenberg Resume.pdf'
 
 function MySplitButton(props) {
 
     const {
-        visible,
-        toggleResume
+        isResumeVisible,
+        resumeHide,
+        resumeShow
     } = props;
 
-    function handleOnClick() {
-        toggleResume(!visible);
-    };
+    const handleOnClick = () => isResumeVisible ? resumeHide() : resumeShow()
 
     return (
         <Button.Group color='teal'>
-            <Button className="viewResumeButton" active={visible} onClick={handleOnClick}>View Resume</Button>
+            <Button className="viewResumeButton" active={isResumeVisible} onClick={handleOnClick}>View Resume</Button>
             <Dropdown button>
                 <Dropdown.Menu>
                     <Dropdown.Header>View as</Dropdown.Header>
@@ -64,7 +64,8 @@ function MySplitButton(props) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleResume: (value) => dispatch(toggleResumeVisibility(value))
+        resumeHide: () => dispatch(hideResume()),
+        resumeShow: () => dispatch(showResume())
     };
 }
 

@@ -20,7 +20,7 @@ import {
     Transition
 } from 'semantic-ui-react'
 
-import footerWave from '../../img/footerWave.svg'
+import footerWave from 'img/footerWave.svg'
 
 export default class MyFooter extends Component {
 

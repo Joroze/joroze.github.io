@@ -7,9 +7,9 @@ import {
     Container
 } from 'semantic-ui-react'
 
-import JobList from './menu_views/JobList';
-import ProjectList from './menu_views/ProjectList';
-import About from './menu_views/About';
+import JobList from './components/JobList/JobList';
+import ProjectList from './components/ProjectList/ProjectList';
+import About from './components/About/About';
 
 export default class MyMenuBar extends Component {
     state = {
