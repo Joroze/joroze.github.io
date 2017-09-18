@@ -7,6 +7,7 @@ import { Icon, Message, Transition } from 'semantic-ui-react'
 
 import { dismissGlobalAlert } from 'ducks/GlobalAlert.duck.js';
 import { getUserProfile } from 'ducks/UserProfile.duck.js';
+import ExternalLinkModal from 'components/ExternalLinkModal/ExternalLinkModal';
 import MyJumbotron from 'components/MyJumbotron/MyJumbotron';
 import Home from 'Home/Home';
 import MyFooter from 'components/MyFooter/MyFooter';
@@ -61,6 +62,7 @@ class AppBody extends Component {
                         )
                     })
                 }
+                <ExternalLinkModal/>
                 <MyJumbotron strings={[
                     'Java',
                     'Node.js',

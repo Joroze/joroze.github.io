@@ -1,15 +1,12 @@
 import './ProjectList.css';
 
 import React, { Component } from 'react';
-import {
-    Segment,
-    Table,
-    Icon
-} from 'semantic-ui-react';
+import { Segment, Table } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import moment from 'moment'
 
 import { getUserRepositories } from 'ducks/UserProfile.duck.js';
+import { openExternalLinkModal } from 'ducks/ExternalLinkModal.duck.js';
 
 class ProjectList extends Component {
     componentDidMount() {
@@ -24,7 +21,7 @@ class ProjectList extends Component {
     }
 
     render() {
-        const { user } = this.props
+        const { openLinkModal, user } = this.props
 
         return (
             <section className='project-list'>
@@ -38,29 +35,22 @@ class ProjectList extends Component {
                             <Table striped singleLine fixed columns={5}>
                                 <Table.Header>
                                     <Table.Row>
-                                        <Table.HeaderCell>
-                                            <Icon size='large' name='key'/>
-                                        </Table.HeaderCell>
                                         <Table.HeaderCell>Repository</Table.HeaderCell>
                                         <Table.HeaderCell>Language</Table.HeaderCell>
                                         <Table.HeaderCell>Description</Table.HeaderCell>
-                                        <Table.HeaderCell>Updated</Table.HeaderCell>
+                                        <Table.HeaderCell>Last Activity</Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
                                 <Table.Body>
                                     {user.repositories.map(function(repo){
-                                        const parsedDate = moment(repo.updated_at, "YYYYMMDD").fromNow();
+                                        const parsedDate = moment(repo.pushed_at, "YYYYMMDD").fromNow();
+
+                                        const handleOnClick = () => openLinkModal(repo.html_url);
 
                                         return(
                                             <Table.Row key={repo.id}>
                                                 <Table.Cell>
-                                                    {repo.private
-                                                        ? <Icon link size='large' name='lock' />
-                                                        : <Icon link size='large' name='unlock' />
-                                                    }
-                                                </Table.Cell>
-                                                <Table.Cell>
-                                                    <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                                                    <a onClick={handleOnClick}>
                                                         {repo.name}
                                                     </a>
                                                 </Table.Cell>
@@ -73,7 +63,6 @@ class ProjectList extends Component {
                                 </Table.Body>
                                 <Table.Footer>
                                     <Table.Row>
-                                        <Table.HeaderCell></Table.HeaderCell>
                                         <Table.HeaderCell>{user.repositories.length} Projects</Table.HeaderCell>
                                         <Table.HeaderCell />
                                         <Table.HeaderCell />
@@ -93,7 +82,8 @@ class ProjectList extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getUserRepos: () => dispatch(getUserRepositories())
+        getUserRepos: () => dispatch(getUserRepositories()),
+        openLinkModal: (url) => dispatch(openExternalLinkModal(url))
     };
 }
 

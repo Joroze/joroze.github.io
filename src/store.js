@@ -8,13 +8,16 @@ import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProductio
 import { createEpicMiddleware } from 'redux-observable';
 
 import {
-    reducer as UserProfileReducer,
-    userEpic
-} from './ducks/UserProfile.duck.js';
+    reducer as ExternalLinkModalReducer
+} from './ducks/ExternalLinkModal.duck.js';
 import {
     reducer as GlobalAlertReducer,
     globalAlertEpic
 } from './ducks/GlobalAlert.duck.js';
+import {
+    reducer as UserProfileReducer,
+    userEpic
+} from './ducks/UserProfile.duck.js';
 
 export const rootEpic = combineEpics(
     globalAlertEpic,
@@ -22,6 +25,7 @@ export const rootEpic = combineEpics(
 );
 
 const rootReducer = combineReducers({
+    externalLinkModal: ExternalLinkModalReducer,
     globalAlerts: GlobalAlertReducer,
     user: UserProfileReducer
 });

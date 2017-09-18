@@ -1,25 +1,21 @@
 import R from 'ramda'
-import {
-    combineEpics
-} from 'redux-observable';
+import { combineEpics } from 'redux-observable';
+
+import { Action } from 'utilities.js';
 
 export const GLOBAL_ALERT_CREATE = 'GlobalAlert/GLOBAL_ALERT_CREATE';
 export const GLOBAL_ALERT_DISMISSED = 'GlobalAlert/GLOBAL_ALERT_DISMISSED';
 
 // Action Creators
-export const createGlobalAlert = (message, color = 'green') => ({
-    type: GLOBAL_ALERT_CREATE,
-    payload: {
+export function createGlobalAlert(message, color = 'green') {
+    return Action(GLOBAL_ALERT_CREATE, {
         color: color,
         message: message,
         id: Date.now()
-    }
-});
+    })
+}
 
-export const dismissGlobalAlert = (alertId) => ({
-    type: GLOBAL_ALERT_DISMISSED,
-    payload: alertId
-});
+export const dismissGlobalAlert = (alertId) => Action(GLOBAL_ALERT_DISMISSED, alertId);
 
 // Define the initial state for the reducer
 export const initialState = {
@@ -53,10 +49,7 @@ function globalAlertLifeTimeEpic(action$, store) {
         .map(function(action) {
             const alert = action.payload;
 
-            return ({
-                type: GLOBAL_ALERT_DISMISSED,
-                payload: alert.id
-            })
+            return Action(GLOBAL_ALERT_DISMISSED, alert.id)
         })
 };
 

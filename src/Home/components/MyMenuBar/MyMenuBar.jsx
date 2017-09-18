@@ -12,41 +12,46 @@ import ProjectList from './components/ProjectList/ProjectList';
 import About from './components/About/About';
 
 export default class MyMenuBar extends Component {
-    state = {
-        activeItem: 'resume'
-    }
+    state = { activeItem: 'resume' }
 
-    handleItemClick = (e, {
-        name
-    }) => this.setState({
+    handleItemClick = (event, { name }) => this.setState({
         activeItem: name
     })
 
     render() {
-        const {
-            activeItem
-        } = this.state
+        const { activeItem } = this.state
 
         return (
             <div>
                 <Menu pointing inverted fluid widths={3}>
-                    <Menu.Item name='resume' active={activeItem === 'resume'} onClick={this.handleItemClick} />
-                    <Menu.Item name='projects' active={activeItem === 'projects'} onClick={this.handleItemClick} />
-                    <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick} />
+                    <Menu.Item
+                        name='resume'
+                        active={activeItem === 'resume'}
+                        onClick={this.handleItemClick}
+                    />
+                    <Menu.Item
+                        name='projects'
+                        active={activeItem === 'projects'}
+                        onClick={this.handleItemClick}
+                    />
+                    <Menu.Item
+                        name='about'
+                        active={activeItem === 'about'}
+                        onClick={this.handleItemClick}
+                    />
                 </Menu>
                 <Container className="home-content">
-
-                    {activeItem === 'resume' ?
-                        <JobList /> :
-                        null
+                    { activeItem === 'resume' ?
+                        <JobList />
+                    : null
                     }
-                    {activeItem === 'projects' ?
-                        <ProjectList /> :
-                        null
+                    { activeItem === 'projects' ?
+                        <ProjectList />
+                    : null
                     }
-                    {activeItem === 'about' ?
-                        <About /> :
-                        null
+                    { activeItem === 'about' ?
+                        <About />
+                    : null
                     }
                 </Container>
             </div>

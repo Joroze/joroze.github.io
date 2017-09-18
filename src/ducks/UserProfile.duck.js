@@ -1,10 +1,11 @@
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { combineEpics } from 'redux-observable';
 import { Observable } from 'rxjs';
-import R from 'ramda'
+import R from 'ramda';
 import { stringify } from 'query-string';
 
-import { GLOBAL_ALERT_CREATE } from './GlobalAlert.duck.js'
+import { GLOBAL_ALERT_CREATE } from './GlobalAlert.duck.js';
+import { ajaxErrorMessage, Action, ErrorAction } from 'utilities.js';
 
 // Actions
 export const GET_USER_AJAX = 'UserProfile/GET_USER_AJAX'
@@ -21,26 +22,10 @@ export const RESUME_HIDDEN = 'UserProfile/RESUME_HIDDEN';
 export const RESUME_VISIBLE = 'UserProfile/RESUME_VISIBLE';
 
 // Action Creators
-export const getUserProfile = (username) => ({
-    type: GET_USER_AJAX,
-    payload: username
-});
-
-export const getUserRepositories = () => ({
-    type: GET_USER_REPOS_AJAX
-});
-
-export function hideResume() {
-    return {
-        type: RESUME_HIDDEN
-    }
-}
-
-export function showResume() {
-    return {
-        type: RESUME_VISIBLE
-    }
-}
+export const getUserProfile = (username) => Action(GET_USER_AJAX, username);
+export const getUserRepositories = () => Action(GET_USER_REPOS_AJAX);
+export const hideResume = () => Action(RESUME_HIDDEN);
+export const showResume = () => Action(RESUME_VISIBLE);
 
 // Define the initial state for the reducer
 export const initialState = {
@@ -109,30 +94,22 @@ function getUserProfileEpic(action$) {
             const username = action.payload;
 
             return ajax.getJSON(`https://api.github.com/users/${username}`)
-                .map(function(response) {
-                    return {
-                        type: GET_USER_AJAX_COMPLETED,
-                        payload: response
-                    }
-                })
+                .map((response) => Action(GET_USER_AJAX_COMPLETED, response))
                 .catch(function(error) {
-                    return Observable.of({
-                        type: GET_USER_AJAX_ERROR,
-                        payload: R.path(['xhr', 'response', 'message'])(error) || 'Github cannot be reached at this time.',
-                        error: true
-                    }, {
-                        type: GLOBAL_ALERT_CREATE,
-                        payload: {
-                            color: 'red',
-                            message: 'Github cannot be reached at this time.',
-                            icon: 'warning circle',
-                            id: Date.now()
-                        }
-                    })
+
+                    const globalAlertConfig = {
+                        color: 'red',
+                        message: 'Github cannot be reached at this time.',
+                        icon: 'warning circle',
+                        id: Date.now()
+                    }
+
+                    return Observable.of(
+                        ErrorAction(GET_USER_AJAX_ERROR, ajaxErrorMessage(error)),
+                        Action(GLOBAL_ALERT_CREATE, globalAlertConfig)
+                    )
                 })
-                .startWith({
-                    type: GET_USER_AJAX_STARTED
-                })
+                .startWith(Action(GET_USER_AJAX_STARTED))
         })
 };
 
@@ -144,35 +121,27 @@ function getUserReposEpic(action$, store) {
 
             const params = stringify({
                 type: 'owner',
-                sort: 'updated',
+                sort: 'pushed',
                 direction: 'desc'
             });
 
             return ajax.getJSON(`https://api.github.com/users/${username}/repos?${params}`)
-                .map(function(response) {
-                    return {
-                        type: GET_USER_REPOS_AJAX_COMPLETED,
-                        payload: response
-                    }
-                })
+                .map((response) => Action(GET_USER_REPOS_AJAX_COMPLETED, response))
                 .catch(function(error) {
-                    return Observable.of({
-                        type: GET_USER_REPOS_AJAX_ERROR,
-                        payload: R.path(['xhr', 'response', 'message'])(error) || 'Github cannot be reached at this time.',
-                        error: true
-                    }, {
-                        type: GLOBAL_ALERT_CREATE,
-                        payload: {
-                            color: 'red',
-                            message: 'Github cannot be reached at this time.',
-                            icon: 'warning circle',
-                            id: Date.now()
-                        }
-                    })
+
+                    const globalAlertConfig = {
+                        color: 'red',
+                        message: 'Github cannot be reached at this time.',
+                        icon: 'warning circle',
+                        id: Date.now()
+                    }
+
+                    return Observable.of(
+                        ErrorAction(GET_USER_REPOS_AJAX_ERROR, ajaxErrorMessage(error)),
+                        Action(GLOBAL_ALERT_CREATE, globalAlertConfig)
+                    )
                 })
-                .startWith({
-                    type: GET_USER_REPOS_AJAX_STARTED
-                })
+                .startWith(Action(GET_USER_REPOS_AJAX_STARTED))
         })
 };
 

@@ -2,4 +2,8 @@
     .ui.loading.segment {
         min-height: 60px;
     }
+
+    td > a {
+        cursor: pointer;
+    }
 }
