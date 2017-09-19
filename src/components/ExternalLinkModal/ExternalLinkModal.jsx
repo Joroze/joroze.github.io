@@ -11,7 +11,7 @@ function ExternalLinkModal(props) {
         <Transition
             animation={'fade down'}
             visible={isOpen}
-            duration={400}
+            duration={250}
         >
             <Modal
                 dimmer='blurring'
