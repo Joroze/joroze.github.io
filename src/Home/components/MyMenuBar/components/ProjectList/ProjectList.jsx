@@ -1,7 +1,7 @@
 import './ProjectList.css';
 
 import React, { Component } from 'react';
-import { Segment, Table } from 'semantic-ui-react';
+import { Segment, Table, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import moment from 'moment'
 
@@ -20,8 +20,20 @@ class ProjectList extends Component {
         }
     }
 
+    handleSort = clickedColumn => () => {
+        const { getUserRepos, user } = this.props
+        const direction = user.queryParams.direction === 'asc' ? 'desc' : 'asc';
+        getUserRepos(clickedColumn, direction)
+    }
+
+    handleRefreshRepoListOnClick = clickedButton => () => {
+        const { getUserRepos } = this.props
+        getUserRepos();
+    }
+
     render() {
         const { openLinkModal, user } = this.props
+        const direction = user.queryParams.direction + 'ending';
 
         return (
             <section className='project-list'>
@@ -32,13 +44,23 @@ class ProjectList extends Component {
                 >
                     {!user.isUserReposLoading ?
                         (
-                            <Table striped singleLine fixed columns={5}>
+                            <Table sortable striped singleLine fixed columns={5}>
                                 <Table.Header>
                                     <Table.Row>
-                                        <Table.HeaderCell>Repository</Table.HeaderCell>
+                                        <Table.HeaderCell
+                                            onClick={this.handleSort('full_name')}
+                                            sorted={direction}
+                                        >
+                                            Repository
+                                        </Table.HeaderCell>
                                         <Table.HeaderCell>Language</Table.HeaderCell>
                                         <Table.HeaderCell>Description</Table.HeaderCell>
-                                        <Table.HeaderCell>Last Activity</Table.HeaderCell>
+                                        <Table.HeaderCell
+                                            onClick={this.handleSort('pushed')}
+                                            sorted={direction}
+                                        >
+                                            Last Activity
+                                        </Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
                                 <Table.Body>
@@ -64,9 +86,15 @@ class ProjectList extends Component {
                                 <Table.Footer>
                                     <Table.Row>
                                         <Table.HeaderCell>{user.repositories.length} Projects</Table.HeaderCell>
-                                        <Table.HeaderCell />
-                                        <Table.HeaderCell />
-                                        <Table.HeaderCell />
+                                        <Table.HeaderCell colSpan='3'>
+                                            <Button
+                                                floated='right'
+                                                loading={user.isUserReposLoading}
+                                                onClick={this.handleRefreshRepoListOnClick()}
+                                                icon='refresh'
+                                                primary
+                                            />
+                                        </Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Footer>
                             </Table>
@@ -82,7 +110,7 @@ class ProjectList extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getUserRepos: () => dispatch(getUserRepositories()),
+        getUserRepos: (sort, direction) => dispatch(getUserRepositories(sort, direction)),
         openLinkModal: (url) => dispatch(openExternalLinkModal(url))
     };
 }

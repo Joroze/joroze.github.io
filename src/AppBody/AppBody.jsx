@@ -32,21 +32,18 @@ class AppBody extends Component {
     render() {
         const { alertList, dismissAlert } = this.props
 
-        const handleOnDismissAlert = (e, alert) => {
-            dismissAlert(alert.id);
-        }
-
         return (
             <section className='app-content'>
-                {
-                    alertList.map(function(alertItem){
-                        return (
-                            <Transition
-                                transitionOnMount
-                            >
+                <Transition.Group>
+                    {
+                        alertList.map(function(alertItem){
+                            function handleOnDismissAlert(){
+                                dismissAlert(alertItem.id);
+                            }
+
+                            return (
                                 <Message
                                     key={alertItem.id}
-                                    id={alertItem.id}
                                     color={alertItem.color}
                                     floating
                                     icon
@@ -58,10 +55,10 @@ class AppBody extends Component {
                                         {alertItem.message}
                                     </Message.Content>
                                 </Message>
-                            </Transition>
-                        )
-                    })
-                }
+                            )
+                        })
+                    }
+                    </Transition.Group>
                 <ExternalLinkModal/>
                 <MyJumbotron strings={[
                     'Java',

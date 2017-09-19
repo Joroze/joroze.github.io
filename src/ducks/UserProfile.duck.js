@@ -23,7 +23,12 @@ export const RESUME_VISIBLE = 'UserProfile/RESUME_VISIBLE';
 
 // Action Creators
 export const getUserProfile = (username) => Action(GET_USER_AJAX, username);
-export const getUserRepositories = () => Action(GET_USER_REPOS_AJAX);
+export function getUserRepositories(sort, direction) {
+    return Action(GET_USER_REPOS_AJAX, {
+        sort: sort,
+        direction: direction
+    })
+}
 export const hideResume = () => Action(RESUME_HIDDEN);
 export const showResume = () => Action(RESUME_VISIBLE);
 
@@ -34,7 +39,11 @@ export const initialState = {
     isResumeVisible: false,
     loadingMessage: '',
     repositories: [],
-    userData: {}
+    userData: {},
+    queryParams: {
+        sort: 'pushed',
+        direction: 'desc'
+    }
 }
 
 // User Reducer
@@ -67,7 +76,8 @@ export function reducer(state = initialState, action) {
             return mergeToState({
                 isUserReposLoading: false,
                 loadingMessage: 'Fetched User Data!',
-                repositories: action.payload
+                queryParams: action.payload.params,
+                repositories: action.payload.response
             });
         case GET_USER_REPOS_AJAX_ERROR:
             return mergeToState({
@@ -115,18 +125,29 @@ function getUserProfileEpic(action$) {
 
 function getUserReposEpic(action$, store) {
     return action$.ofType(GET_USER_REPOS_AJAX)
-        .flatMap(function() {
+        .flatMap(function(action) {
             const username = store.getState()
-                .user.userData.login
+                .user.userData.login;
 
-            const params = stringify({
+            const sort = action.payload.sort || store.getState()
+                .user.queryParams.sort;
+
+            const direction = action.payload.direction || store.getState()
+                .user.queryParams.direction;
+
+            const params = {
                 type: 'owner',
-                sort: 'pushed',
-                direction: 'desc'
-            });
+                sort: sort,
+                direction: direction
+            };
 
-            return ajax.getJSON(`https://api.github.com/users/${username}/repos?${params}`)
-                .map((response) => Action(GET_USER_REPOS_AJAX_COMPLETED, response))
+            const encodedParams = stringify(params)
+
+            return ajax.getJSON(`https://api.github.com/users/${username}/repos?${encodedParams}`)
+                .map((response) => Action(GET_USER_REPOS_AJAX_COMPLETED, {
+                    response: response,
+                    params: params
+                }))
                 .catch(function(error) {
 
                     const globalAlertConfig = {
