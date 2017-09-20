@@ -82,7 +82,7 @@ class ProjectList extends Component {
                                 )
                                 : (
                                     user.repositories.map(function(repo){
-                                        const parsedDate = moment(repo.pushed_at, "YYYYMMDD").fromNow();
+                                        const parsedDate = moment(repo.pushed_at).fromNow();
                                         const handleOnClick = () => openLinkModal(repo.html_url);
                                         return(
                                             <Table.Row key={repo.id}>
