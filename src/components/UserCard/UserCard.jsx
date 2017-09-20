@@ -10,13 +10,16 @@ import {
     Loader
 } from 'semantic-ui-react'
 
+import { openExternalLinkModal } from 'ducks/ExternalLinkModal.duck.js';
+
 const UserCard = (props) => {
     const {
-        user
+        user,
+        openLinkModal
     } = props;
 
     return !user.isUserLoading ? (
-            <Card color='blue' centered raised>
+            <Card raised>
                 <Image src={user.userData.avatar_url} />
                 <Card.Content>
                     <Card.Header>
@@ -28,17 +31,22 @@ const UserCard = (props) => {
                         </span>
                     </Card.Meta>
                     <Card.Description>
-                        {user.userData.bio}
+                        <strong>{user.userData.login}</strong>
+                        {' - '}
+                        <a onClick={() => openLinkModal(user.userData.html_url)}>
+                            GitHub Profile
+                        </a>
+                        <p>{user.userData.location}</p>
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <Icon name='user' />
+                    <Icon name={user.userData.hireable ? 'announcement' : 'minus square outline'} />
                     {user.userData.hireable ? "Available for hire" : "Currently unavailable for hire"}
                 </Card.Content>
             </Card>
         ) :
         (
-            <Card color='orange' centered raised>
+            <Card color='orange' raised>
                 <Card.Content>
                     <Card.Meta>
                         <span>
@@ -62,4 +70,10 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(UserCard);
+function mapDispatchToProps(dispatch) {
+    return {
+        openLinkModal: (url) => dispatch(openExternalLinkModal(url))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserCard);
