@@ -125,7 +125,7 @@ function getUserProfileEpic(action$) {
 
 function getUserReposEpic(action$, store) {
     return action$.ofType(GET_USER_REPOS_AJAX)
-        .flatMap(function(action) {
+        .switchMap(function(action) {
             const username = store.getState()
                 .user.userData.login;
 

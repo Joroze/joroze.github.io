@@ -1,7 +1,13 @@
 import './ProjectList.css';
 
 import React, { Component } from 'react';
-import { Segment, Table, Button } from 'semantic-ui-react';
+import {
+    Segment,
+    Table,
+    Button,
+    Dimmer,
+    Loader
+} from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import moment from 'moment'
 
@@ -39,36 +45,45 @@ class ProjectList extends Component {
             <section className='project-list'>
                 <Segment
                     raised
-                    loading={user.isUserReposLoading}
                     color={user.isUserReposLoading ? 'orange' : 'blue'}
                 >
-                    {!user.isUserReposLoading ?
-                        (
-                            <Table sortable striped singleLine fixed columns={5}>
-                                <Table.Header>
+                    <Table sortable striped singleLine fixed columns={5}>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell
+                                    onClick={this.handleSort('full_name')}
+                                    sorted={direction}
+                                >
+                                    Repository
+                                </Table.HeaderCell>
+                                <Table.HeaderCell>Language</Table.HeaderCell>
+                                <Table.HeaderCell>Description</Table.HeaderCell>
+                                <Table.HeaderCell
+                                    onClick={this.handleSort('pushed')}
+                                    sorted={direction}
+                                >
+                                    Last Activity
+                                </Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+                        <Table.Body>
+                            { user.isUserReposLoading
+                                ? (
                                     <Table.Row>
-                                        <Table.HeaderCell
-                                            onClick={this.handleSort('full_name')}
-                                            sorted={direction}
-                                        >
-                                            Repository
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>Language</Table.HeaderCell>
-                                        <Table.HeaderCell>Description</Table.HeaderCell>
-                                        <Table.HeaderCell
-                                            onClick={this.handleSort('pushed')}
-                                            sorted={direction}
-                                        >
-                                            Last Activity
-                                        </Table.HeaderCell>
+                                        <Table.Cell colSpan='4'>
+                                            <Dimmer
+                                                active
+                                                inverted
+                                            >
+                                                <Loader size='large' inverted />
+                                            </Dimmer>
+                                        </Table.Cell>
                                     </Table.Row>
-                                </Table.Header>
-                                <Table.Body>
-                                    {user.repositories.map(function(repo){
+                                )
+                                : (
+                                    user.repositories.map(function(repo){
                                         const parsedDate = moment(repo.pushed_at, "YYYYMMDD").fromNow();
-
                                         const handleOnClick = () => openLinkModal(repo.html_url);
-
                                         return(
                                             <Table.Row key={repo.id}>
                                                 <Table.Cell>
@@ -81,29 +96,28 @@ class ProjectList extends Component {
                                                 <Table.Cell>{parsedDate}</Table.Cell>
                                             </Table.Row>
                                         )
-                                    })}
-                                </Table.Body>
-                                <Table.Footer>
-                                    <Table.Row>
-                                        <Table.HeaderCell>{user.repositories.length} Projects</Table.HeaderCell>
-                                        <Table.HeaderCell colSpan='3'>
-                                            <Button
-                                                floated='right'
-                                                loading={user.isUserReposLoading}
-                                                onClick={this.handleRefreshRepoListOnClick()}
-                                                icon='refresh'
-                                                primary
-                                            />
-                                        </Table.HeaderCell>
-                                    </Table.Row>
-                                </Table.Footer>
-                            </Table>
-                        )
-                    : null
-                    }
+                                    })
+                                )
+                            }
+                        </Table.Body>
+                        <Table.Footer>
+                            <Table.Row>
+                                <Table.HeaderCell>{user.repositories.length || 'Loading'} Projects</Table.HeaderCell>
+                                <Table.HeaderCell colSpan='3'>
+                                    <Button
+                                        floated='right'
+                                        loading={user.isUserReposLoading}
+                                        disabled={user.isUserReposLoading}
+                                        onClick={this.handleRefreshRepoListOnClick()}
+                                        icon='refresh'
+                                        primary
+                                    />
+                                </Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Footer>
+                    </Table>
                 </Segment>
             </section>
-
         );
     }
 }

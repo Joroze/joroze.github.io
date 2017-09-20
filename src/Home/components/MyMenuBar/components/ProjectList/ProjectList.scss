@@ -1,6 +1,13 @@
 .project-list {
-    .ui.loading.segment {
-        min-height: 60px;
+    .ui {
+        &.loading.segment {
+            min-height: 60px;
+        }
+
+        &.dimmer {
+            position: relative;
+            min-height: 200px;
+        }
     }
 
     td > a {
