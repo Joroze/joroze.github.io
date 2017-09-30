@@ -6,7 +6,10 @@ import { Route, Switch } from "react-router-dom";
 import { Icon, Message, Transition } from 'semantic-ui-react'
 
 import { dismissGlobalAlert } from 'ducks/GlobalAlert.duck.js';
-import { getUserProfile } from 'ducks/UserProfile.duck.js';
+import {
+    getUserProfile,
+    getUserRepositories
+} from 'ducks/UserProfile.duck.js';
 import ExternalLinkModal from 'components/ExternalLinkModal/ExternalLinkModal';
 import MyJumbotron from 'components/MyJumbotron/MyJumbotron';
 import Home from 'Home/Home';
@@ -14,20 +17,21 @@ import MyFooter from 'components/MyFooter/MyFooter';
 import logo from 'img/logo.png'
 
 class AppBody extends Component {
-
     componentDidMount() {
         const {
-            getUser
+            getUser,
+            getUserRepos
         } = this.props;
 
-        getUser('joroze');
+        const USERNAME = 'joroze'
+        getUser(USERNAME);
+        getUserRepos(USERNAME);
     }
 
     componentWillUnmount() {
         // to prevent memory leaks
         this.typed.destroy();
     }
-
 
     render() {
         const { alertList, dismissAlert } = this.props
@@ -109,7 +113,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         dismissAlert: (alertId) => dispatch(dismissGlobalAlert(alertId)),
-        getUser: (username) => dispatch(getUserProfile(username))
+        getUser: (username) => dispatch(getUserProfile(username)),
+        getUserRepos: (username, sort, direction) => dispatch(getUserRepositories(username, sort, direction))
     };
 }
 

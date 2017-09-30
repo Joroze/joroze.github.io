@@ -15,21 +15,10 @@ import { getUserRepositories } from 'ducks/UserProfile.duck.js';
 import { openExternalLinkModal } from 'ducks/ExternalLinkModal.duck.js';
 
 class ProjectList extends Component {
-    componentDidMount() {
-        const {
-            user,
-            getUserRepos
-        } = this.props
-
-        if (!user.isUserLoading) {
-            getUserRepos();
-        }
-    }
-
     handleSort = clickedColumn => () => {
         const { getUserRepos, user } = this.props
         const direction = user.queryParams.direction === 'asc' ? 'desc' : 'asc';
-        getUserRepos(clickedColumn, direction)
+        getUserRepos(null, clickedColumn, direction)
     }
 
     handleRefreshRepoListOnClick = clickedButton => () => {
@@ -124,15 +113,13 @@ class ProjectList extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getUserRepos: (sort, direction) => dispatch(getUserRepositories(sort, direction)),
+        getUserRepos: (username, sort, direction) => dispatch(getUserRepositories(username, sort, direction)),
         openLinkModal: (url) => dispatch(openExternalLinkModal(url))
     };
 }
 
 function mapStateToProps(state) {
-    return {
-        user: state.user
-    };
+    return { user: state.user };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectList);

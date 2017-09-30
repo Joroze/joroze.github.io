@@ -23,11 +23,8 @@ export const RESUME_VISIBLE = 'UserProfile/RESUME_VISIBLE';
 
 // Action Creators
 export const getUserProfile = (username) => Action(GET_USER_AJAX, username);
-export function getUserRepositories(sort, direction) {
-    return Action(GET_USER_REPOS_AJAX, {
-        sort: sort,
-        direction: direction
-    })
+export function getUserRepositories(username, sort, direction) {
+    return Action(GET_USER_REPOS_AJAX, { username, sort, direction })
 }
 export const hideResume = () => Action(RESUME_HIDDEN);
 export const showResume = () => Action(RESUME_VISIBLE);
@@ -126,19 +123,15 @@ function getUserProfileEpic(action$) {
 function getUserReposEpic(action$, store) {
     return action$.ofType(GET_USER_REPOS_AJAX)
         .switchMap(function(action) {
-            const username = store.getState()
-                .user.userData.login;
-
-            const sort = action.payload.sort || store.getState()
-                .user.queryParams.sort;
-
-            const direction = action.payload.direction || store.getState()
-                .user.queryParams.direction;
+            const { user } = store.getState();
+            const username = action.payload.username || user.userData.login;
+            const sort = action.payload.sort || user.queryParams.sort;
+            const direction = action.payload.direction || user.queryParams.direction;
 
             const params = {
                 type: 'owner',
-                sort: sort,
-                direction: direction
+                sort,
+                direction
             };
 
             const encodedParams = stringify(params)
