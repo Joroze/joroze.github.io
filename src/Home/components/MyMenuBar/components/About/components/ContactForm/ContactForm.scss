@@ -1,0 +1,34 @@
+.contact-form {
+    .form-message-success {
+        position: inherit !important;
+    }
+
+    .contact-form-error {
+        color: #9f3a38;
+    }
+
+    .form-input-field {
+        margin-bottom: 25px;
+        margin-right: 10px;
+
+        span {
+            position: absolute;
+            display: flex;
+        }
+    }
+
+    .form-textarea-field {
+        margin-bottom: 25px;
+        width: 100%;
+
+        textarea {
+            width: inherit;
+            border-color: lightgray;
+        }
+
+        span {
+            position: absolute;
+            display: flex;
+        }
+    }
+}

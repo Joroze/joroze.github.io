@@ -55,8 +55,9 @@ class AppBody extends Component {
                                 >
                                     <Icon name='warning' />
                                     <Message.Content>
-                                        <Message.Header>Just one second</Message.Header>
-                                        {alertItem.message}
+                                        <Message.Header>
+                                            {alertItem.message}
+                                        </Message.Header>
                                     </Message.Content>
                                 </Message>
                             )

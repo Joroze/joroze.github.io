@@ -19,7 +19,7 @@ const UserCard = (props) => {
     } = props;
 
     return !user.isUserLoading ? (
-            <Card raised>
+            <Card centered raised>
                 <Image src={user.userData.avatar_url} />
                 <Card.Content>
                     <Card.Header>

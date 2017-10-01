@@ -103,7 +103,6 @@ function getUserProfileEpic(action$) {
             return ajax.getJSON(`https://api.github.com/users/${username}`)
                 .map((response) => Action(GET_USER_AJAX_COMPLETED, response))
                 .catch(function(error) {
-
                     const globalAlertConfig = {
                         color: 'red',
                         message: 'Github cannot be reached at this time.',
@@ -142,7 +141,6 @@ function getUserReposEpic(action$, store) {
                     params: params
                 }))
                 .catch(function(error) {
-
                     const globalAlertConfig = {
                         color: 'red',
                         message: 'Github cannot be reached at this time.',

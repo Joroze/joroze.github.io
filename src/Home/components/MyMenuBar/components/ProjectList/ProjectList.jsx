@@ -94,12 +94,12 @@ class ProjectList extends Component {
                                 <Table.HeaderCell>{user.repositories.length || 'Loading'} Projects</Table.HeaderCell>
                                 <Table.HeaderCell colSpan='3'>
                                     <Button
+                                        color={user.isUserReposLoading ? 'orange' : 'blue'}
+                                        disabled={user.isUserReposLoading}
                                         floated='right'
                                         loading={user.isUserReposLoading}
-                                        disabled={user.isUserReposLoading}
                                         onClick={this.handleRefreshRepoListOnClick()}
                                         icon='refresh'
-                                        primary
                                     />
                                 </Table.HeaderCell>
                             </Table.Row>
