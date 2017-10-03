@@ -1,4 +1,6 @@
 import './MyFooter.css'
+
+import { connect } from 'react-redux';
 import React, {
     Component
 } from 'react';
@@ -20,10 +22,10 @@ import {
     Transition
 } from 'semantic-ui-react'
 
+import { sectionChange } from 'ducks/HomeNavigation.duck.js'
 import footerWave from 'img/footerWave.svg'
 
-export default class MyFooter extends Component {
-
+class MyFooter extends Component {
     state = {
         visible: true
     }
@@ -149,3 +151,17 @@ export default class MyFooter extends Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        activeSection: state.homeNavigation.activeSection
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        changeSection: (section) => dispatch(sectionChange(section))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyFooter);

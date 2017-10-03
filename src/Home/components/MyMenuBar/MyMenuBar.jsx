@@ -1,4 +1,6 @@
 import './MyMenuBar.css';
+
+import { connect } from 'react-redux';
 import React, {
     Component
 } from 'react';
@@ -7,49 +9,46 @@ import {
     Container
 } from 'semantic-ui-react'
 
+import About from './components/About/About';
 import JobList from './components/JobList/JobList';
 import ProjectList from './components/ProjectList/ProjectList';
-import About from './components/About/About';
+import { sectionChange } from 'ducks/HomeNavigation.duck.js'
 
-export default class MyMenuBar extends Component {
-    state = { activeItem: 'resume' }
-
-    handleItemClick = (event, { name }) => this.setState({
-        activeItem: name
-    })
+class MyMenuBar extends Component {
+    handleSectionClick = (event, { name }) => this.props.changeSection(name);
 
     render() {
-        const { activeItem } = this.state
+        const { activeSection } = this.props
 
         return (
             <div>
                 <Menu pointing inverted fluid widths={3}>
                     <Menu.Item
                         name='resume'
-                        active={activeItem === 'resume'}
-                        onClick={this.handleItemClick}
+                        active={activeSection === 'resume'}
+                        onClick={this.handleSectionClick}
                     />
                     <Menu.Item
                         name='projects'
-                        active={activeItem === 'projects'}
-                        onClick={this.handleItemClick}
+                        active={activeSection === 'projects'}
+                        onClick={this.handleSectionClick}
                     />
                     <Menu.Item
                         name='about'
-                        active={activeItem === 'about'}
-                        onClick={this.handleItemClick}
+                        active={activeSection === 'about'}
+                        onClick={this.handleSectionClick}
                     />
                 </Menu>
                 <Container className="home-content">
-                    { activeItem === 'resume' ?
+                    { activeSection === 'resume' ?
                         <JobList />
                     : null
                     }
-                    { activeItem === 'projects' ?
+                    { activeSection === 'projects' ?
                         <ProjectList />
                     : null
                     }
-                    { activeItem === 'about' ?
+                    { activeSection === 'about' ?
                         <About />
                     : null
                     }
@@ -58,3 +57,17 @@ export default class MyMenuBar extends Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        activeSection: state.homeNavigation.activeSection
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        changeSection: (section) => dispatch(sectionChange(section))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyMenuBar);

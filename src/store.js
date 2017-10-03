@@ -20,6 +20,10 @@ import {
     globalAlertEpic
 } from './ducks/GlobalAlert.duck.js';
 import {
+    reducer as homeNavigationReducer,
+    homeNavigationEpic
+} from './ducks/HomeNavigation.duck.js'
+import {
     reducer as userProfileReducer,
     userEpic
 } from './ducks/UserProfile.duck.js';
@@ -27,6 +31,7 @@ import {
 export const rootEpic = combineEpics(
     contactFormEpic,
     globalAlertEpic,
+    homeNavigationEpic,
     userEpic
 );
 
@@ -35,6 +40,7 @@ const rootReducer = combineReducers({
     externalLinkModal: externalLinkModalReducer,
     form: formReducer,
     globalAlerts: globalAlertReducer,
+    homeNavigation: homeNavigationReducer,
     user: userProfileReducer
 });
 
