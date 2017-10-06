@@ -67,12 +67,11 @@ class MyJumbotron extends Component {
                     <Divider horizontal inverted>
                         <MySplitButton isResumeVisible={isResumeVisible}></MySplitButton>
                     </Divider>
-
                     <Transition visible={isResumeVisible} animation='slide down' duration={300}>
                         <Embed
                             active
                             aspectRatio='4:3'
-                            url={`http://docs.google.com/gview?url=http://joroze.com/${resumeFile}&embedded=true`}
+                            url={`https://docs.google.com/viewer?url=http://joroze.com/${resumeFile}&embedded=true`}
                         />
                     </Transition>
                 </Container>

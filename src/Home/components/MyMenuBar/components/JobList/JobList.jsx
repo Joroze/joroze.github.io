@@ -37,7 +37,9 @@ function JobList(props) {
                             <span>May 2017 - Present • {moment([2017, 5 - 1, 18]).fromNow(true)} </span>
                         </Item.Meta>
                         <Item.Description>
-                            TBD
+                            Responsible for Front End development of Admin Apps and Core Services.
+                            <Divider/>
+                            <strong>Languages</strong>: JavaScript (Node.js), React, AngularJS
                         </Item.Description>
                     </Item.Content>
                 </Item>
@@ -117,27 +119,21 @@ function JobList(props) {
                             <span>Jun 2016 - Aug 2016 • 3 Months </span>
                         </Item.Meta>
                         <Item.Description>
-                            BUY
-                            <Popup
-                                trigger={<a> CTO </a>}
-                                content='Chief Technology Office'
-                                size='tiny'
-                            />
-                            software engineering intern for the
+                            Software Engineer internship for the
                             <Popup
                                 trigger={<a> CPS </a>}
                                 content='Consumer Panel Service'
                                 size='tiny'
                             />
                             Delivery team at Nielsen.
-                            <Divider/>
-                            Jordan's <strong>role</strong> was to assist the CPS development team with new releases of an application called
+
+                            Full stack development of
                             <Popup
                                 trigger={<a> CASE </a>}
                                 content='Consumer and Shopper Explorer'
                                 size='tiny'
                             />
-                            using Agile methodologies
+                            application through Agile methodologies.
                             <Divider/>
                             <strong>Responsible for</strong>:
                             <br/>
@@ -155,7 +151,7 @@ function JobList(props) {
                             <Divider/>
                             <strong>Languages</strong>: C/C++, Java, shell scripting, SQL
                             <Divider/>
-                            <strong>Tools utilized</strong>: Git, JIRA, Hadoop, Linux, Gradle, Confluence, Hadoop
+                            <strong>Tools utilized</strong>: Git, IntelliJ, Hadoop, Red Hat Linux, Gradle
                         </Item.Description>
                     </Item.Content>
                 </Item>
