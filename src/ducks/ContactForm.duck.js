@@ -54,7 +54,7 @@ function postContactFormEpic(action$) {
         .switchMap(function(action) {
             const formData = action.payload;
 
-            return ajax.post('https://joroze-181518.appspot.com/contact', formData)
+            return ajax.post('http://backend.joroze.com/contact', formData)
                 .map((response) => Action(POST_FORM_AJAX_COMPLETED, response))
                 .catch(function(error) {
                     const globalAlertConfig = {
