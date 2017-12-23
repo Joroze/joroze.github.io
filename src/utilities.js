@@ -16,6 +16,6 @@ export function ErrorAction(type, payload) {
 }
 
 export function ajaxErrorMessage(error) {
-    const generalErrorMessage = 'Github cannot be reached at this time.';
+    const generalErrorMessage = 'Services cannot be reached at this time.';
     return R.path(['xhr', 'response', 'message'])(error) || generalErrorMessage;
 }

@@ -6,6 +6,14 @@ import { Button, Grid, Input, TextArea, Message } from 'semantic-ui-react'
 
 const required = (value) => value ? undefined : 'is required'
 
+function nameValidation(value) {
+    if (value && !/^[a-zA-Z ]+$/.test(value)) {
+        return 'is invalid'
+    } else {
+        return undefined
+    }
+}
+
 function emailValidation(value) {
     if (value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
         return 'is invalid'
@@ -19,6 +27,7 @@ function TextAreaFormField({
     label,
     loading,
     disabled,
+    maxLength,
     meta: { touched, error }
 }) {
     const handleOnChange = (param, data) => input.onChange(data.value)
@@ -32,7 +41,7 @@ function TextAreaFormField({
         <div className='form-textarea-field'>
             <TextArea
                 autoHeight
-                maxLength={6000}
+                maxLength={maxLength}
                 disabled={disabled}
                 onChange={handleOnChange}
                 style={style}
@@ -51,6 +60,7 @@ function InputFormField({
     label,
     loading,
     disabled,
+    maxLength,
     meta: { touched, error }
 }) {
     const handleOnChange = (param, data) => input.onChange(data.value)
@@ -58,7 +68,7 @@ function InputFormField({
         <div className='form-input-field'>
             <Input
                 placeholder={label}
-                maxLength={50}
+                maxLength={maxLength}
                 loading={loading}
                 disabled={disabled}
                 onChange={handleOnChange}
@@ -90,14 +100,16 @@ let ContactForm = props => {
                     <Field
                         name="name"
                         label='Name'
+                        maxLength={75}
                         disabled={loading || wasSentSuccessfully}
                         component={InputFormField}
                         loading={loading}
-                        validate={[ required ]}
+                        validate={[ required, nameValidation ]}
                     />
                     <Field
                         name="email"
                         label='Email'
+                        maxLength={254}
                         disabled={loading || wasSentSuccessfully}
                         component={InputFormField}
                         loading={loading}
@@ -109,6 +121,7 @@ let ContactForm = props => {
                         name="message"
                         disabled={loading || wasSentSuccessfully}
                         label='Message'
+                        maxLength={6000}
                         component={TextAreaFormField}
                         loading={loading}
                         validate={[ required]}

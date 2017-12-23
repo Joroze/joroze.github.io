@@ -53,8 +53,9 @@ function postContactFormEpic(action$) {
     return action$.ofType(POST_FORM_AJAX)
         .switchMap(function(action) {
             const formData = action.payload;
+            console.log(formData)
 
-            return ajax.post('http://backend.joroze.com/contact', formData)
+            return ajax.post('https://q0x61t1u80.execute-api.us-east-1.amazonaws.com/prod/sendEmail', formData, { 'Content-Type': 'application/json' })
                 .map((response) => Action(POST_FORM_AJAX_COMPLETED, response))
                 .catch(function(error) {
                     const globalAlertConfig = {
