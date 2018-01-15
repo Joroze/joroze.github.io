@@ -1,13 +1,8 @@
 import './MyMenuBar.css';
 
 import { connect } from 'react-redux';
-import React, {
-    Component
-} from 'react';
-import {
-    Menu,
-    Container
-} from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Menu, Container } from 'semantic-ui-react'
 
 import About from './components/About/About';
 import JobList from './components/JobList/JobList';

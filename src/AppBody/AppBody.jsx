@@ -2,7 +2,6 @@ import './AppBody.css';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from "react-router-dom";
 import { Icon, Message, Transition } from 'semantic-ui-react'
 
 import { dismissGlobalAlert } from 'ducks/GlobalAlert.duck.js';
@@ -63,40 +62,28 @@ class AppBody extends Component {
                             )
                         })
                     }
-                    </Transition.Group>
+                </Transition.Group>
                 <ExternalLinkModal/>
                 <MyJumbotron strings={[
                     'Java',
                     'Node.js',
-                    'C++',
-                    'C',
+                    'C, C++',
                     'JavaScript',
-                    'Yarn',
-                    'NPM',
-                    'Android Development',
-                    'SQL',
+                    'Yarn, NPM',
+                    'Android',
+                    'MongoDB, MySQL',
                     'Git',
                     'AJAX',
-                    'React.js',
+                    'React, Redux',
                     'AngularJS',
-                    'JIRA',
-                    'Port Forwarding',
-                    'Web Development',
-                    'HTML5',
-                    'CSS3',
-                    'Data Structures',
+                    'HTML5, CSS3',
                     'Object Oriented Programming',
-                    'Functional Programming',
-                    'Agile Methodologies',
-                    'Linux',
-                    'Windows',
-                    'macOS',
+                    'Agile',
+                    'Linux, MacOS, Windows',
                     'Shell Scripting',
-                    'Firebase'
-                ]}></MyJumbotron>
-                <Switch>
-                    <Route component={Home}/>
-                </Switch>
+                    'Google Firebase'
+                ]}/>
+                <Home/>
                 <br></br>
                 <MyFooter logo={logo}></MyFooter>
             </section>

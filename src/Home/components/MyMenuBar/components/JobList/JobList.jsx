@@ -27,7 +27,7 @@ function JobList(props) {
                     <Item.Content>
                         <Item.Header
                             as='a'
-                            content='Jr. Software Engineer'
+                            content='Jr. Software Engineer - Front End'
                             onClick={() => openLinkModal('https://www.remedypartners.com/')}
                         />
                         <Item.Meta>
@@ -40,6 +40,58 @@ function JobList(props) {
                             Responsible for Front End development of Admin Apps and Core Services.
                             <Divider/>
                             <strong>Languages</strong>: JavaScript (Node.js), React, AngularJS
+                        </Item.Description>
+                    </Item.Content>
+                </Item>
+
+                <Item>
+                    <Item.Image size='tiny' src={nielsenLogo} />
+                    <Item.Content>
+                        <Item.Header
+                            as='a'
+                            content='BUY - Software Engineering Intern'
+                            onClick={() => openLinkModal('http://www.nielsen.com/')}
+                        />
+                        <Item.Meta>
+                            <span>Nielsen</span>
+                        </Item.Meta>
+                        <Item.Meta>
+                            <span>Jun 2016 - Aug 2016 • 3 Months </span>
+                        </Item.Meta>
+                        <Item.Description>
+                            Software Engineer internship for the
+                            <Popup
+                                trigger={<a> CPS </a>}
+                                content='Consumer Panel Service'
+                                size='tiny'
+                            />
+                            Delivery team at Nielsen.
+
+                            Full stack development of
+                            <Popup
+                                trigger={<a> CASE </a>}
+                                content='Consumer and Shopper Explorer'
+                                size='tiny'
+                            />
+                            application through Agile methodologies.
+                            <Divider/>
+                            <strong>Responsible for</strong>:
+                            <br/>
+                            <br/>
+                            • Designing/implementing new features in the back-end of the CASE application
+                            <br/>
+                            <br/>
+                            • Automating the flow of data processed by CASE to various data pools in an efficient manner
+                            <br/>
+                            <br/>
+                            • Unit testing various programs for Windows and Linux compatibility, refactoring legacy code and obsolete dependencies
+                            <br/>
+                            <br/>
+                            • Documenting legacy software and code
+                            <Divider/>
+                            <strong>Languages</strong>: C/C++, Java, shell scripting, SQL
+                            <Divider/>
+                            <strong>Tools utilized</strong>: Git, IntelliJ, Hadoop, Red Hat Linux, Gradle
                         </Item.Description>
                     </Item.Content>
                 </Item>
@@ -98,60 +150,6 @@ function JobList(props) {
                             <br/>
                             <br/>
                             • Into The Streets
-                        </Item.Description>
-
-
-                    </Item.Content>
-                </Item>
-
-                <Item>
-                    <Item.Image size='tiny' src={nielsenLogo} />
-                    <Item.Content>
-                        <Item.Header
-                            as='a'
-                            content='BUY - CTO - Software Engineering Intern'
-                            onClick={() => openLinkModal('http://www.nielsen.com/')}
-                        />
-                        <Item.Meta>
-                            <span>Nielsen</span>
-                        </Item.Meta>
-                        <Item.Meta>
-                            <span>Jun 2016 - Aug 2016 • 3 Months </span>
-                        </Item.Meta>
-                        <Item.Description>
-                            Software Engineer internship for the
-                            <Popup
-                                trigger={<a> CPS </a>}
-                                content='Consumer Panel Service'
-                                size='tiny'
-                            />
-                            Delivery team at Nielsen.
-
-                            Full stack development of
-                            <Popup
-                                trigger={<a> CASE </a>}
-                                content='Consumer and Shopper Explorer'
-                                size='tiny'
-                            />
-                            application through Agile methodologies.
-                            <Divider/>
-                            <strong>Responsible for</strong>:
-                            <br/>
-                            <br/>
-                            • Designing/implementing new features in the back-end of the CASE application
-                            <br/>
-                            <br/>
-                            • Automating the flow of data processed by CASE to various data pools in an efficient manner
-                            <br/>
-                            <br/>
-                            • Unit testing various programs for Windows and Linux compatibility, refactoring legacy code and obsolete libraries
-                            <br/>
-                            <br/>
-                            • Documenting legacy software and code
-                            <Divider/>
-                            <strong>Languages</strong>: C/C++, Java, shell scripting, SQL
-                            <Divider/>
-                            <strong>Tools utilized</strong>: Git, IntelliJ, Hadoop, Red Hat Linux, Gradle
                         </Item.Description>
                     </Item.Content>
                 </Item>
