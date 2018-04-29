@@ -1,3 +1,3 @@
-Jordan's latest personal resume/portfolio website built using React, Node.js, and Semantic UI
+# joroze.github.io
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+### Jordan's interactive resume/portfolio web app built using React, Redux, and RxJS.
