@@ -16,29 +16,26 @@
     },
     "private": true,
     "dependencies": {
-        "axios": "^0.16.2",
-        "gh-pages": "^1.0.0",
-        "lodash": "^4.17.4",
-        "moment": "^2.18.1",
-        "node-sass-chokidar": "^0.0.3",
-        "npm-run-all": "^4.0.2",
-        "query-string": "^5.0.0",
-        "ramda": "^0.24.1",
-        "react": "^16.0.0",
-        "react-dom": "^16.0.0",
-        "react-redux": "^5.0.5",
-        "react-router": "^4.1.1",
-        "react-router-dom": "^4.1.1",
-        "react-scripts": "1.0.14",
-        "react-scroll": "^1.5.4",
-        "redux": "^3.7.2",
-        "redux-form": "^7.0.4",
-        "redux-observable": "^0.16.0",
-        "redux-thunk": "^2.2.0",
-        "rxjs": "^5.4.3",
-        "semantic-ui-css": "^2.2.11",
-        "semantic-ui-react": "^0.74.2",
-        "typed.js": "^2.0.5"
+        "axios": "0.18.0",
+        "lodash": "4.17.4",
+        "moment": "2.18.1",
+        "query-string": "6.0.0",
+        "ramda": "0.25.0",
+        "react": "16.0.0",
+        "react-dom": "16.0.0",
+        "react-redux": "5.0.5",
+        "react-router": "4.1.1",
+        "react-router-dom": "4.1.1",
+        "react-scroll": "1.5.4",
+        "redux": "4.0.0",
+        "redux-form": "7.0.4",
+        "redux-observable": "0.18.0",
+        "redux-thunk": "2.2.0",
+        "rxjs": "6.0.0",
+        "rxjs-compat": "6",
+        "semantic-ui-css": "2.2.11",
+        "semantic-ui-react": "0.79.1",
+        "typed.js": "2.0.5"
     },
     "scripts": {
         "predeploy": "npm run build",
@@ -52,6 +49,10 @@
         "eject": "react-scripts eject"
     },
     "devDependencies": {
-        "redux-devtools-extension": "^2.13.2"
+        "gh-pages": "1.0.0",
+        "node-sass-chokidar": "1.2.2",
+        "npm-run-all": "4.0.2",
+        "react-scripts": "1.1.4",
+        "redux-devtools-extension": "2.13.2"
     }
 }

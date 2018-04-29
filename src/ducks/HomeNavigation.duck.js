@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable';
-import { Observable } from 'rxjs';
-import R from 'ramda';
+import { Observable } from 'rxjs/Rx';
+import * as R from 'ramda';
 
 import { Action } from 'utilities.js';
 

@@ -1,4 +1,4 @@
-import R from 'ramda'
+import * as R from 'ramda';
 import { combineEpics } from 'redux-observable';
 
 import { Action } from 'utilities.js';

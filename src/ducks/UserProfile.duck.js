@@ -1,7 +1,6 @@
-import { ajax } from 'rxjs/observable/dom/ajax';
 import { combineEpics } from 'redux-observable';
-import { Observable } from 'rxjs';
-import R from 'ramda';
+import { Observable } from 'rxjs/Rx';
+import * as R from 'ramda';
 import { stringify } from 'query-string';
 
 import { GLOBAL_ALERT_CREATE } from './GlobalAlert.duck.js';
@@ -100,8 +99,8 @@ function getUserProfileEpic(action$) {
         .flatMap(function(action) {
             const username = action.payload;
 
-            return ajax.getJSON(`https://api.github.com/users/${username}`)
-                .map((response) => Action(GET_USER_AJAX_COMPLETED, response))
+            return Observable.ajax(`https://api.github.com/users/${username}`)
+                .map((response) => Action(GET_USER_AJAX_COMPLETED, response.response))
                 .catch(function(error) {
                     const globalAlertConfig = {
                         color: 'red',
@@ -135,9 +134,9 @@ function getUserReposEpic(action$, store) {
 
             const encodedParams = stringify(params)
 
-            return ajax.getJSON(`https://api.github.com/users/${username}/repos?${encodedParams}`)
+            return Observable.ajax(`https://api.github.com/users/${username}/repos?${encodedParams}`)
                 .map((response) => Action(GET_USER_REPOS_AJAX_COMPLETED, {
-                    response: response,
+                    response: response.response,
                     params: params
                 }))
                 .catch(function(error) {

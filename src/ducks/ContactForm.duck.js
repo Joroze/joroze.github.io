@@ -1,7 +1,6 @@
-import { ajax } from 'rxjs/observable/dom/ajax';
 import { combineEpics } from 'redux-observable';
-import { Observable } from 'rxjs';
-import R from 'ramda';
+import { Observable } from 'rxjs/Rx';
+import * as R from 'ramda';
 
 import { GLOBAL_ALERT_CREATE } from './GlobalAlert.duck.js';
 import { ajaxErrorMessage, Action, ErrorAction } from 'utilities.js';
@@ -53,8 +52,16 @@ function postContactFormEpic(action$) {
     return action$.ofType(POST_FORM_AJAX)
         .switchMap(function(action) {
             const formData = action.payload;
+            const requestSettings = {
+                url: 'https://q0x61t1u80.execute-api.us-east-1.amazonaws.com/prod/sendEmail',
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: formData
+            };
 
-            return ajax.post('https://q0x61t1u80.execute-api.us-east-1.amazonaws.com/prod/sendEmail', formData, { 'Content-Type': 'application/json' })
+            return Observable.ajax(requestSettings)
                 .map((response) => Action(POST_FORM_AJAX_COMPLETED, response))
                 .catch(function(error) {
                     const globalAlertConfig = {
