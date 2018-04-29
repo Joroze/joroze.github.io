@@ -1,7 +1,7 @@
 import { combineEpics } from 'redux-observable';
 import { Observable } from 'rxjs/Rx';
 import * as R from 'ramda';
-import { stringify } from 'query-string';
+import {stringify} from 'qs';
 
 import { GLOBAL_ALERT_CREATE } from './GlobalAlert.duck.js';
 import { ajaxErrorMessage, Action, ErrorAction } from 'utilities.js';
