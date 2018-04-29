@@ -23,3 +23,7 @@ td > a {
     opacity: 0;
     transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
+
+.dimmed.dimmable>.ui.animating.dimmer, .dimmed.dimmable>.ui.visible.dimmer, .ui.active.dimmer {
+    display: flex !important;
+}
