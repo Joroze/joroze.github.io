@@ -27,7 +27,7 @@ function JobList(props) {
                     <Item.Content>
                         <Item.Header
                             as='a'
-                            content='Jr. Software Engineer - Front End'
+                            content='Software Engineer - Front End'
                             onClick={() => openLinkModal('https://www.remedypartners.com/')}
                         />
                         <Item.Meta>
@@ -37,9 +37,21 @@ function JobList(props) {
                             <span>May 2017 - Present • {moment([2017, 5 - 1, 18]).fromNow(true)} </span>
                         </Item.Meta>
                         <Item.Description>
-                            Responsible for Front End development of Admin Apps and Core Services.
+                            Responsible for development of Admin Apps and Core Services.
+                            <br/>
+                            <br/>
+                            - Create and lead web apps (Node.js/React/Redux/Express)
+                            <br/>
+                            <br/>
+                            - Implement reusable and flexible React components
+                            <br/>
+                            <br/>
+                            - Work with dev-ops to ensure continuous deployments
+                            <br/>
+                            <br/>
+                            - Secure security vulnerabilities within core apps and services
                             <Divider/>
-                            <strong>Languages</strong>: JavaScript (Node.js), React, AngularJS
+                            <strong>Technologies</strong>: Node.js, React/Redux, AngularJS, Express, Webpack, mySQL, Auth0 (JWT), Git
                         </Item.Description>
                     </Item.Content>
                 </Item>
