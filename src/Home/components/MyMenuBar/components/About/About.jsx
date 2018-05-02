@@ -10,7 +10,7 @@ import { submitForm } from 'ducks/ContactForm.duck.js'
 
 function About(props) {
     const { formSubmit, contactForm } = props;
-    const { isLoading, wasSentSuccessfully } = contactForm
+    const { isLoading, wasSentSuccessfully } = contactForm;
     const handleSubmit = (values) => formSubmit(values);
 
     return (

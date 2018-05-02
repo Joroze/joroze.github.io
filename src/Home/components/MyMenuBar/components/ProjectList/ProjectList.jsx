@@ -1,6 +1,6 @@
 import './ProjectList.css';
 
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Segment,
     Table,
@@ -14,23 +14,40 @@ import moment from 'moment'
 import { getUserRepositories } from 'ducks/UserProfile.duck.js';
 import { openExternalLinkModal } from 'ducks/ExternalLinkModal.duck.js';
 
-class ProjectList extends Component {
-    handleSort = clickedColumn => () => {
-        const { getUserRepos, user } = this.props
-        const direction = user.queryParams.direction === 'asc' ? 'desc' : 'asc';
-        getUserRepos(null, clickedColumn, direction)
+function HeaderCell({onClick, sortBy, children, ...rest}){
+    const handleOnClick = () => onClick && onClick(sortBy);
+
+    return (
+        <Table.HeaderCell onClick={handleOnClick} {...rest}>
+            {children}
+        </Table.HeaderCell>
+    );
+}
+
+function ProjectList(props) {
+    const {
+        getUserRepos,
+        user,
+        openLinkModal
+    } = props
+
+    function handleOnRepoNameClick(event) {
+        event.preventDefault();
+        openLinkModal(event.target.href);
     }
 
-    handleRefreshRepoListOnClick = clickedButton => () => {
-        const { getUserRepos } = this.props
+    function handleSort(sortBy) {
+        const sortDirection = user.queryParams.direction === 'asc' ? 'desc' : 'asc';
+        getUserRepos(null, sortBy, sortDirection);
+    }
+
+    function handleRefreshRepoListOnClick() {
         getUserRepos();
     }
 
-    render() {
-        const { openLinkModal, user } = this.props
-        const direction = user.queryParams.direction + 'ending';
+    const direction = user.queryParams.direction + 'ending';
 
-        return (
+    return (
             <section className='project-list'>
                 <Segment
                     raised
@@ -39,20 +56,22 @@ class ProjectList extends Component {
                     <Table sortable striped singleLine fixed columns={5}>
                         <Table.Header>
                             <Table.Row>
-                                <Table.HeaderCell
-                                    onClick={this.handleSort('full_name')}
+                                <HeaderCell
+                                    sortBy='full_name'
+                                    onClick={handleSort}
                                     sorted={direction}
                                 >
                                     Repository
-                                </Table.HeaderCell>
-                                <Table.HeaderCell>Language</Table.HeaderCell>
-                                <Table.HeaderCell>Description</Table.HeaderCell>
-                                <Table.HeaderCell
-                                    onClick={this.handleSort('pushed')}
+                                </HeaderCell>
+                                <HeaderCell>Language</HeaderCell>
+                                <HeaderCell>Description</HeaderCell>
+                                <HeaderCell
+                                    onClick={handleSort}
+                                    sortBy='pushed'
                                     sorted={direction}
                                 >
                                     Last Activity
-                                </Table.HeaderCell>
+                                </HeaderCell>
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
@@ -72,11 +91,10 @@ class ProjectList extends Component {
                                 : (
                                     user.repositories.map(function(repo){
                                         const parsedDate = moment(repo.pushed_at).fromNow();
-                                        const handleOnClick = () => openLinkModal(repo.html_url);
-                                        return(
+                                        return (
                                             <Table.Row key={repo.id}>
                                                 <Table.Cell>
-                                                    <a onClick={handleOnClick}>
+                                                    <a href={repo.html_url} onClick={handleOnRepoNameClick}>
                                                         {repo.name}
                                                     </a>
                                                 </Table.Cell>
@@ -91,24 +109,23 @@ class ProjectList extends Component {
                         </Table.Body>
                         <Table.Footer>
                             <Table.Row>
-                                <Table.HeaderCell>{user.repositories.length || 'Loading'} Projects</Table.HeaderCell>
-                                <Table.HeaderCell colSpan='3'>
+                                <HeaderCell>{user.repositories.length || 'Loading'} Projects</HeaderCell>
+                                <HeaderCell colSpan='3'>
                                     <Button
                                         color={user.isUserReposLoading ? 'orange' : 'blue'}
                                         disabled={user.isUserReposLoading}
                                         floated='right'
                                         loading={user.isUserReposLoading}
-                                        onClick={this.handleRefreshRepoListOnClick()}
+                                        onClick={handleRefreshRepoListOnClick}
                                         icon='refresh'
                                     />
-                                </Table.HeaderCell>
+                                </HeaderCell>
                             </Table.Row>
                         </Table.Footer>
                     </Table>
                 </Segment>
-            </section>
-        );
-    }
+        </section>
+    );
 }
 
 function mapDispatchToProps(dispatch) {

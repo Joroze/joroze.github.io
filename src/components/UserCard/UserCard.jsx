@@ -18,6 +18,11 @@ const UserCard = (props) => {
         openLinkModal
     } = props;
 
+    function handleOnClick(event) {
+        event.preventDefault();
+        openLinkModal(event.target.href)
+    }
+
     return !user.isUserLoading ? (
             <Card centered raised>
                 <Image src={user.userData.avatar_url} />
@@ -33,7 +38,7 @@ const UserCard = (props) => {
                     <Card.Description>
                         <strong>{user.userData.login}</strong>
                         {' - '}
-                        <a onClick={() => openLinkModal(user.userData.html_url)}>
+                        <a href={user.userData.html_url} onClick={handleOnClick}>
                             GitHub Profile
                         </a>
                         <p>{user.userData.location}</p>

@@ -19,8 +19,6 @@ import Typed from 'typed.js';
 import MySplitButton from 'components/MySplitButton/MySplitButton';
 import resumeFile from 'Jordan Rosenberg Resume.pdf'
 
-console.log(resumeFile)
-
 class MyJumbotron extends Component {
 
     componentDidMount() {

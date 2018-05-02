@@ -1,5 +1,3 @@
-import './JobList.css';
-
 import { connect } from 'react-redux';
 import React from 'react';
 import moment from 'moment'
@@ -19,6 +17,11 @@ import nielsenLogo from 'img/nielsenLogo.png';
 function JobList(props) {
     const { openLinkModal } = props;
 
+    function handleOnItemHeaderClick(event) {
+        event.preventDefault();
+        openLinkModal(event.target.href)
+    }
+
     return (
         <Segment raised color='blue'>
             <Item.Group divided >
@@ -27,8 +30,9 @@ function JobList(props) {
                     <Item.Content>
                         <Item.Header
                             as='a'
-                            content='Software Engineer - Front End'
-                            onClick={() => openLinkModal('https://www.remedypartners.com/')}
+                            content='Software Engineer'
+                            href='https://www.remedypartners.com/'
+                            onClick={handleOnItemHeaderClick}
                         />
                         <Item.Meta>
                             <span>Remedy Partners</span>
@@ -37,21 +41,23 @@ function JobList(props) {
                             <span>May 2017 - Present • {moment([2017, 5 - 1, 18]).fromNow(true)} </span>
                         </Item.Meta>
                         <Item.Description>
-                            Responsible for development of Admin Apps and Core Services.
+                            - Build and maintain the infrastructure and architecture of the front-end stack using React and Redux, Express, Webpack, Semantic UI, and ES6.
                             <br/>
                             <br/>
-                            - Create and lead web apps (Node.js/React/Redux/Express)
+                            - Consume data via restful API and display in the UI.
                             <br/>
                             <br/>
-                            - Implement reusable and flexible React components
+                            - Collaborate with the Product Team to determine requirements for development and integrate new features using best practices and modular code.
                             <br/>
                             <br/>
-                            - Work with dev-ops to ensure continuous deployments
+                            - Utilize routing, promises, environment configuration, and custom React components in the application to make it light weight with reusability, readability and maintainability.
                             <br/>
                             <br/>
-                            - Secure security vulnerabilities within core apps and services
+                            - Discover and secure vulnerabilities within core apps and back-end services.
                             <Divider/>
-                            <strong>Technologies</strong>: Node.js, React/Redux, AngularJS, Express, Webpack, mySQL, Auth0 (JWT), Git
+                            <strong>Languages</strong>: Node.js (ES6/React/AngularJS), Java (Spring)
+                            <Divider/>
+                            <strong>Technologies</strong>: VSCode, IntelliJ, Git, Express, Webpack, mySQL, JWT, Maven, Bamboo, JIRA
                         </Item.Description>
                     </Item.Content>
                 </Item>
@@ -62,7 +68,8 @@ function JobList(props) {
                         <Item.Header
                             as='a'
                             content='BUY - Software Engineering Intern'
-                            onClick={() => openLinkModal('http://www.nielsen.com/')}
+                            href='http://www.nielsen.com/'
+                            onClick={handleOnItemHeaderClick}
                         />
                         <Item.Meta>
                             <span>Nielsen</span>
@@ -114,7 +121,8 @@ function JobList(props) {
                         <Item.Header
                             as='a'
                             content='Computer Science'
-                            onClick={() => openLinkModal('http://suny.oneonta.edu/')}
+                            href='http://suny.oneonta.edu/'
+                            onClick={handleOnItemHeaderClick}
                         />
                         <Item.Meta>
                             <span>SUNY Oneonta</span>
