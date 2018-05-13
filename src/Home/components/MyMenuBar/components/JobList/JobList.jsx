@@ -23,7 +23,7 @@ function JobList(props) {
     }
 
     return (
-        <Segment raised color='blue'>
+        <Segment raised>
             <Item.Group divided >
                 <Item>
                     <Item.Image size='tiny' src={remedyLogo} />

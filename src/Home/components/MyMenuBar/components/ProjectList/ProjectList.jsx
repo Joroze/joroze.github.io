@@ -51,7 +51,7 @@ function ProjectList(props) {
             <section className='project-list'>
                 <Segment
                     raised
-                    color={user.isUserReposLoading ? 'orange' : 'blue'}
+                    color={user.isUserReposLoading ? 'orange' : undefined}
                 >
                     <Table sortable striped singleLine fixed columns={5}>
                         <Table.Header>

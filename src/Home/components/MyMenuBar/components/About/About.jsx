@@ -22,16 +22,16 @@ function About(props) {
                     </Grid.Column>
                     <Grid.Column>
                         <Grid.Row>
-                            <Segment color='blue' raised>
-                                <p>Jordan Rosenberg is a recent university graduate with a B.S. in Computer Science (Technical concentration).</p>
-                                <p>Jordan is innovative, simplistic, and ambitious. He believes that any task is attainable with hard work and dedication.</p>
-                                <p>During the course of his collegiate career, Jordan has developed a passion for building professional relationships and making a difference in the community.</p>
-                                <p>Jordan is building on his personal and professional skills to become a valuable asset in the tech. industry.</p>
+                            <Segment raised>
+                                <h3 className='text-center'>Introduction</h3>
+                                <p>I’m a recent university graduate with a B.S. in Computer Science.</p>
+                                <p>If I were to describe myself using three words, they would be innovative, simplistic, and ambitious.</p>
+                                <p>I believe that any task is attainable with hard work and dedication. During the course of my collegiate career, I’ve developed a passion for building professional relationships and making a difference in the community.</p>
                             </Segment>
                         </Grid.Row>
                         <Grid.Row>
                             <Segment
-                                color={isLoading ? 'orange' : 'blue'}
+                                color={isLoading ? 'orange' : undefined }
                                 raised
                                 stacked
                             >
