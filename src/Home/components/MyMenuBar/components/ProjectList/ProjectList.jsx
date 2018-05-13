@@ -94,9 +94,14 @@ function ProjectList(props) {
                                         return (
                                             <Table.Row key={repo.id}>
                                                 <Table.Cell>
-                                                    <a href={repo.html_url} onClick={handleOnRepoNameClick}>
-                                                        {repo.name}
-                                                    </a>
+                                                    { repo.homepage 
+                                                    ? (
+                                                        <a href={repo.homepage} onClick={handleOnRepoNameClick}>
+                                                            {repo.name}
+                                                        </a>
+                                                        )
+                                                    : repo.name
+                                                    }
                                                 </Table.Cell>
                                                 <Table.Cell>{repo.language}</Table.Cell>
                                                 <Table.Cell title={repo.description}>{repo.description}</Table.Cell>
