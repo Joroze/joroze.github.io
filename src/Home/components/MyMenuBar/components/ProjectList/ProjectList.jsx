@@ -94,9 +94,9 @@ function ProjectList(props) {
                                         return (
                                             <Table.Row key={repo.id}>
                                                 <Table.Cell>
-                                                    { repo.homepage 
+                                                    { repo.html_url 
                                                     ? (
-                                                        <a href={repo.homepage} onClick={handleOnRepoNameClick}>
+                                                        <a href={repo.html_url} onClick={handleOnRepoNameClick}>
                                                             {repo.name}
                                                         </a>
                                                         )
