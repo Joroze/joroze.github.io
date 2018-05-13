@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter as Router, } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 import MyNavBar from './components/MyNavBar/MyNavBar';
 import logo from './img/logo.png'
@@ -11,12 +11,12 @@ import store from './store'
 class App extends Component {
     render() {
         return (
-            <Provider store={store()}>
-                <Router basename="/">
-                    <div>
+            <Provider store={store}>
+                <Router>
+                    <React.Fragment>
                         <MyNavBar logo={logo}/>
-                        <AppBody/>
-                    </div>
+                        <Route path="/" exact component={AppBody}/>
+                    </React.Fragment>
                 </Router>
             </Provider>
         );

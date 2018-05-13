@@ -41,19 +41,19 @@ function JobList(props) {
                             <span>May 2017 - Present • {moment([2017, 5 - 1, 18]).fromNow(true)} </span>
                         </Item.Meta>
                         <Item.Description>
-                            - Build and maintain the infrastructure and architecture of the front-end stack using React and Redux, Express, Webpack, Semantic UI, and ES6.
+                            • Build and maintain the infrastructure and architecture of the front-end stack using React and Redux, Express, Webpack, Semantic UI, and ES6.
                             <br/>
                             <br/>
-                            - Consume data via restful API and display in the UI.
+                            • Consume data via restful API and display in the UI.
                             <br/>
                             <br/>
-                            - Collaborate with the Product Team to determine requirements for development and integrate new features using best practices and modular code.
+                            • Collaborate with the Product Team to determine requirements for development and integrate new features using best practices and modular code.
                             <br/>
                             <br/>
-                            - Utilize routing, promises, environment configuration, and custom React components in the application to make it light weight with reusability, readability and maintainability.
+                            • Utilize routing, promises, environment configuration, and custom React components in the application to make it light weight with reusability, readability and maintainability.
                             <br/>
                             <br/>
-                            - Discover and secure vulnerabilities within core apps and back-end services.
+                            • Discover and secure vulnerabilities within core apps and back-end services.
                             <Divider/>
                             <strong>Languages</strong>: Node.js (ES6/React/AngularJS), Java (Spring)
                             <Divider/>

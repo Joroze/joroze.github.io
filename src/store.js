@@ -48,4 +48,4 @@ const epicMiddleware = createEpicMiddleware(rootEpic)
 const middleWare = applyMiddleware(epicMiddleware);
 const store = createStore(rootReducer, composeWithDevTools(middleWare));
 
-export default () => store;
+export default store;
