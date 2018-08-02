@@ -25,6 +25,7 @@ export default class MyNavBar extends Component {
                             <Dropdown.Divider/>
                             <Dropdown.Header>Projects</Dropdown.Header>
                             <Dropdown.Item href='https://github.com/Joroze' target="_blank" rel="noopener noreferrer" icon='github square' text='GitHub' />
+                            <Dropdown.Item href="https://chat.joroze.com" target="_blank" rel="noopener noreferrer" icon='chat' text='Chat Room Web App' />
                             <Dropdown.Item href="https://viewshows.joroze.com" target="_blank" rel="noopener noreferrer" icon='video' text='Video Web App' />
                             <Dropdown.Item href="https://ai.joroze.com" target="_blank" rel="noopener noreferrer" icon='grid layout' text='Shortest Path Web App' />
                             <Dropdown.Item href="https://roomifer.joroze.com" target="_blank" rel="noopener noreferrer" icon='android' text='Roomifer App' />
