@@ -58,7 +58,7 @@ function JobList(props) {
                             <br/>
                             • Implemented dynamic web app configuration to cut down deployment costs
                             <Divider/>
-                            <strong>Languages</strong>: Node.js (ES6/React/AngularJS), Python, Golang)
+                            <strong>Languages</strong>: Node.js (ES6/React/AngularJS), Python, Golang
                             <Divider/>
                             <strong>Technologies</strong>: VSCode, IntelliJ, Git, Express, Webpack, mySQL, JWT, Maven, Bamboo, JIRA
                         </Item.Description>
