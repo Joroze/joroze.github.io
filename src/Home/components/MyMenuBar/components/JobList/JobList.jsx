@@ -10,7 +10,7 @@ import {
 
 import { openExternalLinkModal } from 'ducks/ExternalLinkModal.duck.js';
 
-import remedyLogo from 'img/remedyLogo.png';
+import signifyLogo from 'img/signifyLogo.png';
 import oneontaLogo from 'img/oneontaLogo.png';
 import nielsenLogo from 'img/nielsenLogo.png';
 
@@ -26,7 +26,7 @@ function JobList(props) {
         <Segment raised>
             <Item.Group divided >
                 <Item>
-                    <Item.Image size='tiny' src={remedyLogo} />
+                    <Item.Image size='tiny' src={signifyLogo} />
                     <Item.Content>
                         <Item.Header
                             as='a'
@@ -35,27 +35,30 @@ function JobList(props) {
                             onClick={handleOnItemHeaderClick}
                         />
                         <Item.Meta>
-                            <span>Remedy Partners</span>
+                            <span>Signify Health</span>
                         </Item.Meta>
                         <Item.Meta>
                             <span>May 2017 - Present • {moment([2017, 5 - 1, 18]).fromNow(true)} </span>
                         </Item.Meta>
                         <Item.Description>
-                            • Build and maintain the infrastructure and architecture of the front-end stack using React and Redux, Express, Webpack, Semantic UI, and ES6.
+                            • Architected the transition of multiple Front End web apps from AngularJS to React. (Redux, Express, Webpack, ES6, RxJS)
                             <br/>
                             <br/>
-                            • Consume data via restful API and display in the UI.
+                            • Lead efforts in significantly improving our ETL processing time from days to minutes, through the use of (serverless) Spark.
                             <br/>
                             <br/>
-                            • Collaborate with the Product Team to determine requirements for development and integrate new features using best practices and modular code.
+                            • Improved initial load time of Front End web apps by up to 90%
                             <br/>
                             <br/>
-                            • Utilize routing, promises, environment configuration, and custom React components in the application to make it light weight with reusability, readability and maintainability.
+                            • Utilize routing, promises, environment configuration, and custom React components in the application to make it lightweight with reusability, readability, and maintainability
                             <br/>
                             <br/>
-                            • Discover and secure vulnerabilities within core apps and back-end services.
+                            • Build and maintain backend infrastructure & microservices with powerful API workflows, and flexible GraphQL schemas
+                            <br/>
+                            <br/>
+                            • Implemented dynamic web app configuration to cut down deployment costs
                             <Divider/>
-                            <strong>Languages</strong>: Node.js (ES6/React/AngularJS), Java (Spring)
+                            <strong>Languages</strong>: Node.js (ES6/React/AngularJS), Python, Golang)
                             <Divider/>
                             <strong>Technologies</strong>: VSCode, IntelliJ, Git, Express, Webpack, mySQL, JWT, Maven, Bamboo, JIRA
                         </Item.Description>
